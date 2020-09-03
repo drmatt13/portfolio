@@ -1,0 +1,11 @@
+<title>portfolio</title>
+<link href="/css/portfolio/portfolioHome.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<body>
+    <div class="center-div">
+        <% for(var i=0; i<data.length; i++) {%>
+            <a href="portfolio/<%= data[i] %>"><%= data[i] %></a>
+        <% } %>
+    </div>
+</body>

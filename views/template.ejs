@@ -1,0 +1,145 @@
+<head>
+    <title><%= title %></title>
+    <link href="/css/portfolio/template.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body>
+
+    <div class="display-master-main">
+        <nav class='nav-main'>
+        <div class="nav-main-exit">
+            <div class="fas fa-times-circle"></div>
+        </div>
+        <div class="logo">
+            <img src="/images/david.png" alt="user">
+        </div>
+        <ul>
+            <li><a href="..\..\">Home</a></li>
+            <li><a href="..\..\portfolio">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">LinkedIn</a></li>
+        </ul>
+        </nav>
+
+        <div class="header">
+
+        <!-- toggle sidenav -->
+        <div class="header-div1">
+            <div class="toggleNav">
+            <img src="\images\cube.svg" alt="">
+            </div>
+        </div>
+
+        <!-- title -->
+        <div class="header-div2">
+            <h1 class="h1"><%= title %></h1>
+        </div>
+
+        <!-- resize button -->
+        <div class="header-div3">
+            <div id="toggleSize" class="toggleSize">
+            <img class="fill-my-color1" src="\images\rectangle.svg" alt="screen">
+            </div>
+        </div>
+        </div>
+
+        <div class="display-main">
+
+        <!-- left side -->
+        <div class="html-btn g-highlight"></div>
+        <div class="css-btn g-highlight"></div>
+        <div class="js-btn g-highlight"></div>
+
+        <div class="d1-1">
+            <!-- html -->
+            <div class="d1-1-html">
+<pre id="<%= appHtml %>" class="pre-text">
+<strong><u>html</u></strong>
+<!-- encoded html here -->
+</pre>
+            </div>
+            <!-- css -->
+            <div class="d1-1-css notVisable">
+<pre id="<%= appCss %>" class="pre-text">
+<strong><u>css</u></strong>
+<!-- css here -->
+</pre>
+            </div>
+            <!-- js -->
+            <div class="d1-1-js notVisable">
+<pre id="<%= appJs %>" class="pre-text">
+<strong><u>js</u></strong>
+<!-- js here -->
+</pre>
+            </div>
+        </div>
+
+        <!-- left side -->
+
+        <!-- right side -->
+
+        <!-- Main Display -->
+
+        <div class="d2-1">
+            <iframe id=body class="body" src="\apps\<%= title %>\index.html"></iframe>
+        </div>
+
+        <!-- Main Display -->
+
+        <!-- right side -->
+
+        </div>
+
+        <!-- 2 links forward & back -->
+        <div class="display-main-links-master-container">
+        <div class="display-main-links-container">
+            <!-- link 1 -->
+            <a class="display-main-link" href="#">test link</a>
+        </div>
+        <div class="display-main-links-container">
+            <!-- link 2 -->
+            <a class="display-main-link" href="#">test link</a>
+        </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.htmlentities = {
+            /***@param {String} str **/
+            encode : function(str) {
+                var buf = [];
+                for (var i=str.length-1;i>=0;i--) {
+                    buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
+                }
+                return buf.join('');
+            },
+        };
+        let html = document.querySelectorAll('.pre-text')[0].id;
+        let css = document.querySelectorAll('.pre-text')[1].id;
+        let js = document.querySelectorAll('.pre-text')[2].id;
+        html = html.split('<body>')[1];
+        html = html.split('<script src=')[0];
+        let left = html.split('<')[0];
+        left = left.replace(/\n/g, '');
+        html = html.trim();
+        temp = (left + html).split(/\n/g);
+        html = '';
+        for (let s of temp) {
+            for (let i=0; i<left.length; i++) {
+                s = s.substring(1);
+            }
+            html += (s + '\n');
+        }
+        document.querySelectorAll('.pre-text')[0].innerHTML += 
+        htmlentities.encode(html.trim() + "\n ");
+        document.querySelectorAll('.pre-text')[1].innerHTML += 
+        htmlentities.encode(css.trim() + "\n ");
+        document.querySelectorAll('.pre-text')[2].innerHTML += 
+        htmlentities.encode(js.trim() + "\n ");
+    </script>
+
+    <script src="/scripts/template.js"></script>
+
+</body>
