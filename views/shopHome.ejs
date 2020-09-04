@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
-    <link rel="stylesheet" href="/css/shop/style.css">
+    <link rel="stylesheet" href="/css/shop/shopHome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
 <body>
@@ -30,10 +30,12 @@
 
             <div class="checkout-container">
 
+                <!--------- GENERATE WITH JS --------->
                 <div class="subtotal-container">
                     <div class="">Subtotal</div>
-                    <div class="">$35.00</div>
+                    <div class="">$10.00</div>
                 </div>
+                <!-- ---------------------------------- -->
                 <div class="info-container">Shipping, taxes, and discount codes calculated at checkout.</div>
                 <div class="checkout-btn">Check out</div>
 
@@ -43,7 +45,7 @@
 
         </div>
         <nav class="navbar">
-            <div class="nav-child1 logo">
+            <div class="nav-child1 logo no-select">
                 <!-- <img class="logo" src="/shop/media/mlk.png" alt="mlk"> -->
                 <h2>City Point Exotics</h2>
             </div>
@@ -52,13 +54,10 @@
                 <div class="about-btn"><a href="#social">about</a></div>
                 <div class="shop-btn"><a href="#shop-products">shop</a></div>
             </div>
-            <div class="nav-child3"><img class="logo" src="/shop/media/leaf.svg" alt="fist"></div>
+            <div class="nav-child3"><img class="logo no-select" src="/shop/media/leaf.svg" alt="fist"></div>
         </nav>
-        <div class="advertisement-container">
-            <!-- <video autoplay muted loop id="blmVideo">
-                <source src="/shop/media/blm2.mp4" type="video/mp4">
-            </video> -->
-            <img src="/shop/media/flower1.jpg" alt="">
+        <div class="advertisement-container no-select">
+            <img id="banner" src="" alt="banner">
         </div>
         <div class="shop-products" id="shop-products">
             <h1>SHOP</h1>
@@ -72,7 +71,7 @@
             -->
             <% for(var i=0; i<Object.keys(storeData).length; i++) {%>
                 <div class="item-container">
-                    <div class="item-container-image-container"><img src="/shop/products/<%= Object.keys(storeData)[i] %>/1.png" alt="<%= Object.keys(storeData)[i] %>"></div>
+                    <div class="item-container-image-container no-select"><img src="/shop/products/<%= Object.keys(storeData)[i] %>/1.png" alt="<%= Object.keys(storeData)[i] %>"></div>
                     <div class="item-container-title"><%= Object.keys(storeData)[i] %></div>
                     <div class="item-container-footer">$<%= storeData[Object.keys(storeData)[i]].price %></div>
                 </div>

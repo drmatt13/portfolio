@@ -26,8 +26,9 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    (async function() {
-        const endPoint = await ngrok.connect(PORT);
-        console.log(endPoint);
-    })()
+    // (async function() {
+    //     const endPoint = await ngrok.connect(PORT);
+    //     console.log(endPoint);
+    // })()
+    console.log('3000');
 });

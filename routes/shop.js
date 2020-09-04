@@ -65,4 +65,10 @@ router
         res.render(__dirname + "/../views/shopHome", {storeData});
     });
 
+router
+    .route("/checkout")
+    .get((req, res) => {
+        res.render(__dirname + "/../views/shopCheckout", {storeData});
+    });
+
 module.exports = router;

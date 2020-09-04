@@ -1,15 +1,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
-    <link rel="stylesheet" href="/css/shop/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-</head>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
-    <link rel="stylesheet" href="/css/shop/style.css">
+    <title><%= Object.keys(storeData)[index] %></title>
+    <link rel="stylesheet" href="/css/shop/shopProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
 <body>
@@ -37,10 +30,12 @@
 
             <div class="checkout-container">
 
+                <!--------- GENERATE WITH JS --------->
                 <div class="subtotal-container">
                     <div class="">Subtotal</div>
-                    <div class="">$35.00</div>
+                    <div class="">$10.00</div>
                 </div>
+                <!-- ---------------------------------- -->
                 <div class="info-container">Shipping, taxes, and discount codes calculated at checkout.</div>
                 <div class="checkout-btn">Check out</div>
 
@@ -50,25 +45,65 @@
 
         </div>
         <nav class="navbar">
-            <div class="nav-child1 logo">
+            <div class="nav-child1 logo no-select">
                 <!-- <img class="logo" src="/shop/media/mlk.png" alt="mlk"> -->
                 <h2>City Point Exotics</h2>
             </div>
             <div class="nav-child2">
                 <div class="cart-btn"><div class="fas fa-shopping-cart"></div></div>
                 <div class="about-btn"><a href="#social">about</a></div>
-                <div class="shop-btn"><a href="#shop-products">shop</a></div>
+                <div class="shop-btn"><a href="./">home</a></div>
             </div>
-            <div class="nav-child3"><img class="logo" src="/shop/media/leaf.svg" alt="fist"></div>
+            <div class="nav-child3"><img class="logo no-select" src="/shop/media/leaf.svg" alt="fist"></div>
         </nav>
-        <div class="advertisement-container">
-            <img src="/shop/media/flower1.jpg" alt="">
+        <div class="advertisement-container no-select">
+            <img id="banner" src="" alt="banner">
         </div>
-        <div class="social-container" id="social"><h1><%= index %></h1> </div>
+        <div class="shop-products" id="shop-products">
+            <h1><%= Object.keys(storeData)[index] %></h1>
+            <div class="shop-products-container">
+                <!--                 
+                <div class="item-container">
+                    <div class="item-container-image-container"><img src="" alt="item1.png"></div>
+                    <div class="item-container-title">item1</div>
+                    <div class="item-container-footer">$10.00</div>
+                </div> 
+                -->
+                <div class="images-container">
+
+                    <div class="img no-select selected">
+                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
+                    </div>
+                    <div class="img no-select">
+                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
+                    </div>
+                    <div class="img no-select">
+                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
+                    </div>
+                    <div class="img no-select">
+                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
+                    </div>
+                    <div class="img no-select">
+                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
+                    </div>
+
+                </div>
+                <div class="item-container">
+                    <div class="item-container-image-container no-select"><img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>"></div>
+                    <div class="item-container-title">descriptionSmall</div>
+                    <div class="item-container-footer">$<%= storeData[Object.keys(storeData)[index]].price %></div>
+                </div>
+                <div class="large-description">
+                    <div>descriptionLarge, ipsum dolor sit amet consectetur adipisicing elit. Minima, assumenda ipsa tenetur dolore odio, corporis delectus quas consequatur aliquam quaerat sunt amet? Praesentium quisquam dolorum aliquam. Consectetur natus consequatur optio? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus ea architecto eum magnam dignissimos autem!</div>
+                </div>
+                <div class="final"></div>
+            </div>
+        </div>
+        <div class="social-container" id="social"></div>
     </div>
     <% for(var i=0; i<Object.keys(storeData).length; i++) {%>
         <div id="<%= Object.keys(storeData)[i] %>" class="item"></div>
     <% } %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/scripts/shopHome.js"></script>
+    <script src="/scripts/shopProduct.js"></script>
 </body>

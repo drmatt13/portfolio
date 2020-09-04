@@ -52,12 +52,6 @@ if (!isMobile) {
 let items = [];
 itemContainers = document.querySelectorAll(".item-container");
 itemDivs = document.querySelectorAll(".item");
-for (let i=0; i<itemDivs.length; i++) {
-  items.push(itemDivs[i].id);
-  itemContainers[i].addEventListener("click", () => {
-      window.location.href = `/shop/${items[i]}`;
-    });
-}
 
 document.querySelector(".checkout-btn").addEventListener("click", () => {
   window.location.href = 'checkout';

@@ -11,26 +11,26 @@
 ::-webkit-scrollbar {
     width: 12px;
     height: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: #999;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #5b5b5b;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #6b6b6b;
-  }
-  
-  ::-webkit-scrollbar-corner {
-    background: #999;
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #6b6b6b;
+}
+
+::-webkit-scrollbar-corner {
+background: #999;
+}
 
 .hide-scroll {
     overflow-y: hidden;
@@ -225,6 +225,16 @@ a {
     font-weight: bold;
 }
 
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 .nav-child1 {
     height: 80px;
     width: auto;
@@ -234,6 +244,7 @@ a {
     justify-content: center;
     font-size: larger;
     font-weight: bold;
+
 }
 
 .nav-child1:hover {
