@@ -29,13 +29,12 @@ for (let i=0; i<test.length; i++) {
 
 //cart-btn click
 const modalContainer = document.querySelector(".modal-container");
-modalContainer.style.visibility = 'hidden';
 const cartBtn = document.querySelector(".cart-btn");
 const exitBtn = document.querySelector(".exit-btn");
 cartBtn.addEventListener('click', () => {
     modalContainer.classList.toggle("visable");
     document.body.classList.toggle("hide-scroll");
-    modalContainer.style.visibility = '';
+    modalContainer.classList.add("transition");
 });
 exitBtn.addEventListener('click', () => {
     modalContainer.classList.toggle("visable");

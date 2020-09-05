@@ -29,13 +29,12 @@ for (let i=0; i<test.length; i++) {
 
 //cart-btn click
 const modalContainer = document.querySelector(".modal-container");
-modalContainer.style.visibility = 'hidden';
 const cartBtn = document.querySelector(".cart-btn");
 const exitBtn = document.querySelector(".exit-btn");
 cartBtn.addEventListener('click', () => {
     modalContainer.classList.toggle("visable");
     document.body.classList.toggle("hide-scroll");
-    modalContainer.style.visibility = '';
+    modalContainer.classList.add("transition");
 });
 exitBtn.addEventListener('click', () => {
     modalContainer.classList.toggle("visable");
@@ -56,3 +55,21 @@ itemDivs = document.querySelectorAll(".item");
 document.querySelector(".checkout-btn").addEventListener("click", () => {
   window.location.href = 'checkout';
 });
+
+let selectedPicture = 0;
+let itemContainerImageContainer = document.querySelector(".item-container-image-container");
+const imgDivs = document.querySelectorAll(".img");
+for (let i=0; i<imgDivs.length; i++) {
+  imgDivs[i].addEventListener("click", () => {
+    itemContainerImageContainer.childNodes[0].src = "/shop" + imgDivs[i].childNodes[1].src.split(['shop'])[1];
+    imgDivs[selectedPicture].classList.remove("selected");
+    imgDivs[i].classList.add("selected");
+    selectedPicture = i;
+  });
+  imgDivs[i].addEventListener("mouseover", () => {
+    itemContainerImageContainer.childNodes[0].src = "/shop" + imgDivs[i].childNodes[1].src.split(['shop'])[1];
+  });
+  imgDivs[i].addEventListener("mouseout", () => {
+    itemContainerImageContainer.childNodes[0].src = "/shop" + imgDivs[selectedPicture].childNodes[1].src.split(['shop'])[1];
+  });
+}

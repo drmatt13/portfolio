@@ -13,16 +13,68 @@
 
                 <!-- GENERATED FROM JS, DOESNT NEED EJS -->
                 <div class="cart-container">
-                    <div class="cart-container-image-container"><img src="/shop/products/item XXXXX/1.png" alt="item XXXXX.png"></div>
+                    <div class="cart-container-image-container"><img src="/shop/products/Purple Dream/1.png" alt="item XXXXX.png"></div>
                     <div class="cart-container-title">
                         <div class="cart-container-title-header">
-                            <div>item XXXXX</div>
+                            <div>Purple Dream</div>
                         </div>
                         <div class="cart-container-title-footer">
-                            <div>descriptionSmall</div><div>$10.00</div>
+                            <div>color / size</div><div>$10.00</div>
                         </div>
                     </div>
-                    <div class="cart-container-footer">x</div>
+                    <div class="cart-container-footer"><div class="fas fa-times-circle"></div></div>
+                </div>
+
+                <div class="cart-container">
+                    <div class="cart-container-image-container"><img src="/shop/products/Purple Dream/1.png" alt="item XXXXX.png"></div>
+                    <div class="cart-container-title">
+                        <div class="cart-container-title-header">
+                            <div>Purple Dream</div>
+                        </div>
+                        <div class="cart-container-title-footer">
+                            <div>color / size</div><div>$10.00</div>
+                        </div>
+                    </div>
+                    <div class="cart-container-footer"><div class="fas fa-times-circle"></div></div>
+                </div>
+
+                <div class="cart-container">
+                    <div class="cart-container-image-container"><img src="/shop/products/Purple Dream/1.png" alt="item XXXXX.png"></div>
+                    <div class="cart-container-title">
+                        <div class="cart-container-title-header">
+                            <div>Purple Dream</div>
+                        </div>
+                        <div class="cart-container-title-footer">
+                            <div>color / size</div><div>$10.00</div>
+                        </div>
+                    </div>
+                    <div class="cart-container-footer"><div class="fas fa-times-circle"></div></div>
+                </div>
+
+                <div class="cart-container">
+                    <div class="cart-container-image-container"><img src="/shop/products/Purple Dream/1.png" alt="item XXXXX.png"></div>
+                    <div class="cart-container-title">
+                        <div class="cart-container-title-header">
+                            <div>Purple Dream</div>
+                        </div>
+                        <div class="cart-container-title-footer">
+                            <div>color / size</div><div>$10.00</div>
+                        </div>
+                    </div>
+                    <div class="cart-container-footer"><div class="fas fa-times-circle"></div></div>
+                </div>
+
+                <div class="cart-container">
+                    <div class="cart-container-image-container"><img src="/shop/products/Purple Dream/1.png" alt="item XXXXX.png"></div>
+                    <div class="cart-container-title">
+                        <div class="cart-container-title-header">
+                            <div>Purple Dream</div>
+                        </div>
+                        <div class="cart-container-title-footer">
+                            <div>color / size</div><div>$10.00</div>
+                        </div>
+                    </div>
+                    <div class="cart-container-footer"><div class="fas fa-times-circle"></div></div>
                 </div>
                 <!-- ---------------------------------- -->
 
@@ -33,20 +85,16 @@
                 <!--------- GENERATE WITH JS --------->
                 <div class="subtotal-container">
                     <div class="">Subtotal</div>
-                    <div class="">$10.00</div>
+                    <div class="">$50.00</div>
                 </div>
                 <!-- ---------------------------------- -->
                 <div class="info-container">Shipping, taxes, and discount codes calculated at checkout.</div>
                 <div class="checkout-btn">Check out</div>
-
             </div>
-
             <div class="exit-btn"><div class="fas fa-times-circle"></div></div>
-
         </div>
         <nav class="navbar">
             <div class="nav-child1 logo no-select">
-                <!-- <img class="logo" src="/shop/media/mlk.png" alt="mlk"> -->
                 <h2>City Point Exotics</h2>
             </div>
             <div class="nav-child2">
@@ -61,49 +109,49 @@
         </div>
         <div class="shop-products" id="shop-products">
             <h1><%= Object.keys(storeData)[index] %></h1>
+            <div class="products">
+                <% for(var i=0; i<Object.keys(storeData).length; i++) {%>
+                    <div id="<%= Object.keys(storeData)[i] %>" class="item"></div>
+                <% } %>
+            </div>
             <div class="shop-products-container">
-                <!--                 
-                <div class="item-container">
-                    <div class="item-container-image-container"><img src="" alt="item1.png"></div>
-                    <div class="item-container-title">item1</div>
-                    <div class="item-container-footer">$10.00</div>
-                </div> 
-                -->
                 <div class="images-container">
-
-                    <div class="img no-select selected">
-                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
-                    </div>
-                    <div class="img no-select">
-                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
-                    </div>
-                    <div class="img no-select">
-                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
-                    </div>
-                    <div class="img no-select">
-                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
-                    </div>
-                    <div class="img no-select">
-                        <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
-                    </div>
-
+                    <% for(let [i, pic] of pictures.entries()) {%>
+                        <% if (i == 0) { %>
+                            <div class="img no-select selected">
+                                <img src="/shop/products/<%= Object.keys(storeData)[index] %>/<%= pic %>" alt="test">
+                            </div>
+                        <%} else { %>
+                            <div class="img no-select">
+                                <img src="/shop/products/<%= Object.keys(storeData)[index] %>/<%= pic %>" alt="test">
+                            </div>
+                        <% } %>
+                    <% } %>
                 </div>
                 <div class="item-container">
+                    <% if (soldOut) { %>
+                        <div class="sold-out no-select">Sold Out</div>
+                    <%} %>
                     <div class="item-container-image-container no-select"><img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>"></div>
-                    <div class="item-container-title">descriptionSmall</div>
                     <div class="item-container-footer">$<%= storeData[Object.keys(storeData)[index]].price %></div>
                 </div>
                 <div class="large-description">
-                    <div>descriptionLarge, ipsum dolor sit amet consectetur adipisicing elit. Minima, assumenda ipsa tenetur dolore odio, corporis delectus quas consequatur aliquam quaerat sunt amet? Praesentium quisquam dolorum aliquam. Consectetur natus consequatur optio? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus ea architecto eum magnam dignissimos autem!</div>
+                    <div><%= storeData[Object.keys(storeData)[index]].descriptionLarge %></div>
                 </div>
-                <div class="final"></div>
+                <div class="final">
+
+
+
+                    <div class="add-btn">Add to cart</div>
+
+
+
+
+                </div>
             </div>
         </div>
         <div class="social-container" id="social"></div>
     </div>
-    <% for(var i=0; i<Object.keys(storeData).length; i++) {%>
-        <div id="<%= Object.keys(storeData)[i] %>" class="item"></div>
-    <% } %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/scripts/shopProduct.js"></script>
 </body>

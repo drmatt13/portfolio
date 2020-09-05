@@ -13,16 +13,16 @@
 
                 <!-- GENERATED FROM JS, DOESNT NEED EJS -->
                 <div class="cart-container">
-                    <div class="cart-container-image-container"><img src="/shop/products/item XXXXX/1.png" alt="item XXXXX.png"></div>
+                    <div class="cart-container-image-container"><img src="/shop/products/Purple Dream/1.png" alt="item XXXXX.png"></div>
                     <div class="cart-container-title">
                         <div class="cart-container-title-header">
-                            <div>item XXXXX</div>
+                            <div>Purple Dream</div>
                         </div>
                         <div class="cart-container-title-footer">
-                            <div>descriptionSmall</div><div>$10.00</div>
+                            <div>color / size</div><div>$10.00</div>
                         </div>
                     </div>
-                    <div class="cart-container-footer">x</div>
+                    <div class="cart-container-footer"><div class="fas fa-times-circle"></div></div>
                 </div>
                 <!-- ---------------------------------- -->
 
@@ -62,15 +62,11 @@
         <div class="shop-products" id="shop-products">
             <h1>SHOP</h1>
             <div class="shop-products-container">
-            <!--                 
-            <div class="item-container">
-                <div class="item-container-image-container"><img src="" alt="item1.png"></div>
-                <div class="item-container-title">item1</div>
-                <div class="item-container-footer">$10.00</div>
-            </div> 
-            -->
             <% for(var i=0; i<Object.keys(storeData).length; i++) {%>
                 <div class="item-container">
+                    <% if (soldOut[i]) { %>
+                        <div class="sold-out no-select">Sold Out</div>
+                    <%} %>
                     <div class="item-container-image-container no-select"><img src="/shop/products/<%= Object.keys(storeData)[i] %>/1.png" alt="<%= Object.keys(storeData)[i] %>"></div>
                     <div class="item-container-title"><%= Object.keys(storeData)[i] %></div>
                     <div class="item-container-footer">$<%= storeData[Object.keys(storeData)[i]].price %></div>

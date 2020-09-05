@@ -15,6 +15,9 @@ app.use("/notes", notes);
 const portfolio = require("./routes/portfolio");
 app.use("/portfolio", portfolio);
 
+const passport = require("./routes/passport");
+app.use("/passport", passport);
+
 const shop = require("./routes/shop");
 app.use("/shop", shop);
 
@@ -26,9 +29,9 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    // (async function() {
-    //     const endPoint = await ngrok.connect(PORT);
-    //     console.log(endPoint);
-    // })()
-    console.log('3000');
+    (async function() {
+        const endPoint = await ngrok.connect(PORT);
+        console.log(endPoint);
+    })()
+    // console.log('3000');
 });
