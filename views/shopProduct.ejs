@@ -89,7 +89,7 @@
                 </div>
                 <!-- ---------------------------------- -->
                 <div class="info-container">Shipping, taxes, and discount codes calculated at checkout.</div>
-                <div class="checkout-btn">Check out</div>
+                <div class="checkout-btn no-select">Check out</div>
             </div>
             <div class="exit-btn"><div class="fas fa-times-circle"></div></div>
         </div>
@@ -115,39 +115,58 @@
                 <% } %>
             </div>
             <div class="shop-products-container">
-                <div class="images-container">
-                    <% for(let [i, pic] of pictures.entries()) {%>
-                        <% if (i == 0) { %>
-                            <div class="img no-select selected">
-                                <img src="/shop/products/<%= Object.keys(storeData)[index] %>/<%= pic %>" alt="test">
-                            </div>
-                        <%} else { %>
-                            <div class="img no-select">
-                                <img src="/shop/products/<%= Object.keys(storeData)[index] %>/<%= pic %>" alt="test">
-                            </div>
+
+                <div class="testtest">
+
+                    <div class="images-container">
+                        <% for(let [i, pic] of pictures.entries()) {%>
+                            <% if (i == 0) { %>
+                                <div class="img no-select selected">
+                                    <img src="/shop/products/<%= Object.keys(storeData)[index] %>/<%= pic %>" alt="test">
+                                </div>
+                            <%} else { %>
+                                <div class="img no-select">
+                                    <img src="/shop/products/<%= Object.keys(storeData)[index] %>/<%= pic %>" alt="test">
+                                </div>
+                            <% } %>
                         <% } %>
-                    <% } %>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-container-image-container no-select">
+                            <% if (soldOut) { %>
+                                <div class="sold-out no-select">Sold Out</div>
+                            <%} %>
+                            <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>"></div>
+                        <div class="item-container-footer">$<%= storeData[Object.keys(storeData)[index]].price %></div>
+                    </div>
+
                 </div>
-                <div class="item-container">
-                    <% if (soldOut) { %>
-                        <div class="sold-out no-select">Sold Out</div>
-                    <%} %>
-                    <div class="item-container-image-container no-select"><img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>"></div>
-                    <div class="item-container-footer">$<%= storeData[Object.keys(storeData)[index]].price %></div>
-                </div>
+
                 <div class="large-description">
                     <div><%= storeData[Object.keys(storeData)[index]].descriptionLarge %></div>
                 </div>
+
+                <div class="testtest2">
+                    <div>Purple Dream</div>
+                    <div>$40.00 USD</div>
+                </div>
+
                 <div class="final">
 
 
-
-                    <div class="add-btn">Add to cart</div>
+                    <div class="add-btn no-select">Add to cart</div>
 
 
 
 
                 </div>
+
+                <div class="second-large-description">
+                    <div><%= storeData[Object.keys(storeData)[index]].descriptionLarge %></div>
+                </div>
+
+
+
             </div>
         </div>
         <div class="social-container" id="social"></div>

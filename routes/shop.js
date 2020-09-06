@@ -41,7 +41,8 @@ const storeData = {
             "xxl": 0
         },
         "color": false,
-        "descriptionLarge": "A California medical scene cut that is a classic, Purple Dream is thought to have come from the Mendo Purps line. It's a slow-vegging plant that almost always turns a deep shade of purple by the time it's finished. It's the purple plant of choice for many, as it's known for being more potent and flavorful than many of the others."
+            "xl": 0,
+            "descriptionLarge": "A California medical scene cut that is a classic, Purple Dream is thought to have come from the Mendo Purps line. It's a slow-vegging plant that almost always turns a deep shade of purple by the time it's finished. It's the purple plant of choice for many, as it's known for being more potent and flavorful than many of the others. Green Crack has a classically indica bud structure, with dense buds that are more small and clustered than chunky. The leaves are pale green to yellow, although the pigments in some phenotypes can cause some leaves to be streaked with purple when plants are exposed to cold during the growing process. Rust-colored pistils stand out against the colorful flowers. The buds are also coated in milky-white trichomes, giving them a sticky texture and a glistening appearance."
     },
     "Green Crack": {
         "price": '90.00',
