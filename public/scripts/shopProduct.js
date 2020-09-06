@@ -61,15 +61,15 @@ let itemContainerImageContainer = document.querySelector(".item-container-image-
 const imgDivs = document.querySelectorAll(".img");
 for (let i=0; i<imgDivs.length; i++) {
   imgDivs[i].addEventListener("click", () => {
-    itemContainerImageContainer.childNodes[0].src = "/shop" + imgDivs[i].childNodes[1].src.split(['shop'])[1];
+    itemContainerImageContainer.childNodes[1].src = "/shop" + imgDivs[i].childNodes[1].src.split(['shop'])[1];
     imgDivs[selectedPicture].classList.remove("selected");
     imgDivs[i].classList.add("selected");
     selectedPicture = i;
   });
   imgDivs[i].addEventListener("mouseover", () => {
-    itemContainerImageContainer.childNodes[0].src = "/shop" + imgDivs[i].childNodes[1].src.split(['shop'])[1];
+    itemContainerImageContainer.childNodes[1].src = "/shop" + imgDivs[i].childNodes[1].src.split(['shop'])[1];
   });
   imgDivs[i].addEventListener("mouseout", () => {
-    itemContainerImageContainer.childNodes[0].src = "/shop" + imgDivs[selectedPicture].childNodes[1].src.split(['shop'])[1];
+    itemContainerImageContainer.childNodes[1].src = "/shop" + imgDivs[selectedPicture].childNodes[1].src.split(['shop'])[1];
   });
 }

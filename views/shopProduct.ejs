@@ -133,10 +133,11 @@
                     </div>
                     <div class="item-container">
                         <div class="item-container-image-container no-select">
+                            <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
                             <% if (soldOut) { %>
                                 <div class="sold-out no-select">Sold Out</div>
                             <%} %>
-                            <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>"></div>
+                        </div>
                         <div class="item-container-footer">$<%= storeData[Object.keys(storeData)[index]].price %></div>
                     </div>
 
