@@ -117,15 +117,16 @@ a {
 }
 
 .cart-container-image-container {
-    background-color: rgba(119, 135, 160, 0.514);
     width: 30%;
+    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .cart-container-image-container img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .cart-container-title {
@@ -500,7 +501,33 @@ a {
     height: 25vw;
     width: 17.5vw;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+}
+
+.final div {
+    
+}
+
+.color-container {
+    flex: 1;
+}
+
+.size-container {
+    /* flex: 1; */
+    display: flex;
+    flex-direction: row;
+}
+
+.size-container div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(17.5vw / 5);
+}
+
+.qauntity-container {
+    flex: 1;
 }
 
 .add-btn {
@@ -531,6 +558,10 @@ a {
 }
 
 @media screen and (max-height:600px) {
+
+    .cart-container-image-container {
+        height: 60px;
+    }
 
     .exit-btn {
         top: 18px;
@@ -568,7 +599,7 @@ a {
     }
 
     .sold-out {
-        padding: .65vw;
+        padding: .45vw;
     }
 }
 
@@ -608,7 +639,7 @@ a {
     }
 
     .sold-out {
-        padding: .5vw;
+        padding: .55vw;
         font-size: small;
     }
 
@@ -688,6 +719,8 @@ a {
     }
 }
 
+/* -------------------------------------------------------- */
+
 @media screen and (max-width:650px) {
 
     .shop-products h1 {
@@ -696,14 +729,12 @@ a {
     
     .shop-products-container {
         flex-direction: column;
+        padding-top: 5vw;
     }
     
     .testtest {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
-        background-color: black;
-        width: 80vw;
-        height: auto;
     }
     
     .images-container {
@@ -713,14 +744,12 @@ a {
     }
     
     .images-container div {
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: 10vw;
+        width: 50vw;
     }
     
     .img {
-        height: 100%;
+        height: 10vw;
         width: 10vw;
     }
     
@@ -728,20 +757,22 @@ a {
         height: 100%;
         width: 100%;
     }
-    
+
     .item-container {
-        height: auto;
+        max-height: max-content;
+        height: 50vw;
         width: 50vw;
-        margin: 0;
+        margin: 0 0 5vw 0;
+        padding: 0;
     }
     
     .item-container-image-container {
-        width: 100%;
+        height: 100%;
     }
-    
-    .item-container-image-container img {
-        position: relative;
-        width: 100%;
+
+    .sold-out {
+        padding: 1vw;
+        font-size: large;
     }
     
     .item-container-footer {
@@ -758,6 +789,10 @@ a {
         display: flex;
         flex-direction: column;
     }
+
+    .testtest2 div {
+        font-size: large;
+    }
     
     .testtest2 div:first-of-type{
         font-weight: bold;
@@ -766,10 +801,17 @@ a {
     .final {
         height: auto;
         margin-bottom: 5vw;
-        width: 36vw;
+        width: 50vw;
+    }
+
+    .add-btn-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .add-btn {
+        width: 36vw;
         padding: 10px 0;
     }
     
@@ -807,6 +849,10 @@ a {
         width: 65vw;
     }
 
+    .sold-out {
+        padding: 1.5vw;
+    }
+
     .testtest2 {
         margin: 5vw 0;
         width: 65vw;
@@ -821,11 +867,12 @@ a {
     }
 
     .final {
-        width: 36vw;
+        width: 65vw;
     }
 
     .add-btn {
         padding: 10px 0;
+        width: 43vw;
     }
 
     .second-large-description {
@@ -837,6 +884,10 @@ a {
 
     .nav-child1 {
         font-size: x-small ;
+    }
+
+    .shop-products-container {
+        padding-top: 7.5vw;
     }
 
     .images-container {
@@ -857,17 +908,22 @@ a {
         width: 80vw;
     }
 
+    .sold-out {
+        padding: 1.2vw;
+    }
+
     .testtest2 {
         margin: 5vw 0;
         width: 80vw;
     }
 
     .final {
-        width: 25vw;
+        width: 80vw;
     }
 
     .add-btn {
         padding: 10px 0;
+        width: 50vw;
     }
 
     .second-large-description {

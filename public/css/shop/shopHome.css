@@ -88,15 +88,16 @@ a {
 }
 
 .cart-container-image-container {
-    background-color: rgba(119, 135, 160, 0.514);
     width: 30%;
+    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .cart-container-image-container img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .cart-container-title {
@@ -393,6 +394,10 @@ a {
 }
 
 @media screen and (max-height:600px) {
+
+    .cart-container-image-container {
+        height: 60px;
+    }
 
     .exit-btn {
         top: 18px;
