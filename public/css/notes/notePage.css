@@ -85,9 +85,16 @@ body::-webkit-scrollbar {
     color: white;
 }
 
+.input {
+    color: rgba(126, 185, 240, 0.9)
+}
+
 .output {
-    margin-top: 10px;
     color: rgba(134, 224, 134, 0.9)
+}
+
+.output pre:first-of-type {
+    margin-top: 10px;
 }
 
 .tag {

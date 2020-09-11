@@ -1,8 +1,8 @@
 window.htmlentities = {
     /***@param {String} str **/
-    encode : function(str) {
-        var buf = [];
-        for (var i=str.length-1;i>=0;i--) {
+    encode : (str) => {
+        let buf = [];
+        for (let i=str.length-1;i>=0;i--) {
             buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
         }
         return buf.join('');
@@ -12,6 +12,8 @@ let htmlCode = [];
 let cssCode = [];
 let jsCode = [];
 let count = 0;
+let commentGap = 0;
+let commentGapString = '';
 for (i in array) {
     count = 0;
     let pre;
@@ -29,7 +31,10 @@ for (i in array) {
         pre = document.createElement('pre');
         if (array[i][0][j].comment) {
             pre.classList.add('comment');
-            pre.innerHTML = htmlentities.encode('<!-- ' + array[i][0][j].comment + ' -->');
+            commentGap = array[i][0][j].comment.length - array[i][0][j].comment.trim().length;
+            for (let k=0; k<commentGap; k++) commentGapString += ' ';
+            pre.innerHTML = htmlentities.encode(commentGapString + '<!-- ' + array[i][0][j].comment.trim() + ' -->');
+            commentGapString = '';
             string = '';
         } else {
             string = array[i][0][j].html;
@@ -57,7 +62,10 @@ for (i in array) {
         pre = document.createElement('pre');
         if (array[i][1][j].comment) {
             pre.classList.add('comment');
-            pre.innerHTML = htmlentities.encode('/* ' + array[i][1][j].comment + ' */');
+            commentGap = array[i][1][j].comment.length - array[i][1][j].comment.trim().length;
+            for (let k=0; k<commentGap; k++) commentGapString += ' ';
+            pre.innerHTML = htmlentities.encode(commentGapString + '/* ' + array[i][1][j].comment.trim() + ' */');
+            commentGapString = '';
             string = '';
         } else {
             string = array[i][1][j].css;
@@ -85,7 +93,10 @@ for (i in array) {
         pre = document.createElement('pre');
         if (array[i][2][j].comment) {
             pre.classList.add('comment');
-            pre.innerHTML = htmlentities.encode('// ' + array[i][2][j].comment);
+            commentGap = array[i][2][j].comment.length - array[i][2][j].comment.trim().length;
+            for (let k=0; k<commentGap; k++) commentGapString += ' ';
+            pre.innerHTML = htmlentities.encode(commentGapString + '// ' + array[i][2][j].comment.trim());
+            commentGapString = '';
             string = '';
         } else {
             string = array[i][2][j].js;
@@ -107,8 +118,16 @@ for (i in array) {
     output.classList.add('output');
     for (j in array[i][3]) {
         pre = document.createElement('pre');
-        if (array[i][3][j].comment) pre.classList.add('comment');
-        pre.innerHTML = htmlentities.encode(array[i][3][j].output);
+        if (array[i][3][j].comment) {
+            pre.classList.add('comment');
+            pre.innerHTML = array[i][3][j].comment;
+        } else if (array[i][3][j].input) {
+            pre.classList.add('input');
+            pre.innerHTML = array[i][3][j].input;
+        } else {
+            pre.classList.add('output');
+            pre.innerHTML = array[i][3][j].output;
+        }
         output.appendChild(pre);
         count++;
     }
@@ -148,7 +167,7 @@ for (let i=0; i<array.length; i++) {
         count++;
     } else buttonPointer.push(null);
 }
-function modifyButtonYspace(i) {
+const modifyButtonYspace = (i) => {
     let y1 = document.querySelectorAll('.card')[i].clientHeight;
     let y2 = document.querySelectorAll('.card')[i].scrollHeight;
     if (buttons[buttonPointer[i]]) {
@@ -162,7 +181,7 @@ function modifyButtonYspace(i) {
 const ButtonSizeUpdate = () => {for (i in array) modifyButtonYspace(i)};
 window.addEventListener('resize', ButtonSizeUpdate);
 ButtonSizeUpdate();
-function buildApp(i) {
+const buildApp = (i) => {
     if (document.querySelector('.app-container') != null) document.querySelector('.app-container').remove();
     let appContainer = document.createElement('div');
     appContainer.classList.add('app-container');

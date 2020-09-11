@@ -290,4 +290,31 @@ background-color: green;
 {'render': true}
 ],
 
+    // card ----------------------------------------------------- >
+    [
+        //html
+        [
+            {'html': `\n`},
+            {'comment': `Create HTML form`},
+            {'html': `\n`},
+{'html': `<h2>HTML Form</h2>
+<form action="/route" method="POST">
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname"><br><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname"><br><br>
+    <input type="submit" value="Submit">
+</form>`},
+{'html': `\n`}
+        ],
+        //css
+        [],
+        //js
+        [],
+        // output
+        [],
+        //render
+        {'render': true}
+    ],
+
 ];

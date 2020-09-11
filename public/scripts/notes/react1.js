@@ -10,6 +10,7 @@ const array = [
         [],
         //js
         [
+            {'js': `\n`},
 {'comment': `functional component`},
 {'js': `import React from 'react';
 
@@ -22,7 +23,8 @@ function FunctionalComponent(props) {
     );
 }
 
-export default FunctionalComponent;`}
+export default FunctionalComponent;`},
+{'js': `\n`}
         ],
         // output
         [],
@@ -38,6 +40,7 @@ export default FunctionalComponent;`}
         [],
         //js
         [
+{'js': `\n`},
 {'comment': `class component`},
 {'js': `import React, { Component } from 'react';
 
@@ -57,7 +60,8 @@ class ClassComponent extends Component {
     }
 }
 
-export default ClassComponent;`}
+export default ClassComponent;`},
+{'js': `\n`}
         ],
         // output
         [],
