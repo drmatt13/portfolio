@@ -117,14 +117,14 @@ router
             res.json({
                 confirmation: 'success',
                 'data': data
-            })
+            });
         })
         .catch(err => {
             res.json({
                 confirmation: 'fail',
                 message: err.message
-            })
-        })
+            });
+        });
     })
     .post((req, res) => {
         Model.create(req.body)
@@ -132,14 +132,14 @@ router
             res.json({
                 confirmation: 'success',
                 'data': data
-            })
+            });
         })
         .catch(err => {
             res.json({
                 confirmation: 'fail',
                 message: err.message
-            })
-        })
+            });
+        });
     });
 
 router
@@ -150,14 +150,14 @@ router
             res.json({
                 confirmation: 'success',
                 'data': data
-            })
+            });
         })
         .catch(err => {
             res.json({
                 confirmation: 'fail',
                 message: err.message
-            })
-        })
+            });
+        });
     })
     .put((req, res) => {
         Model.findByIdAndUpdate(req.params.id, req.body, {
@@ -168,14 +168,14 @@ router
             res.json({
                 confirmation: 'success',
                 'data': data
-            })
+            });
         })
         .catch(err => {
             res.json({
                 confirmation: 'fail',
                 message: err.message
-            })
-        })
+            });
+        });
     })
     .delete( async (req, res) => {
         try {
@@ -211,44 +211,42 @@ module.exports = router;`},
 {'js': `const fs = require('fs');
 const mongoose = require('mongoose');
 const colors = require('colors');
-const dotenv = require('dotenv');
-
-// Load env vars
-dotenv.config({ path: './config/config.env' });
-
-// Load models
-const Bootcamp = require('./models/Bootcamp');
-
-// Connect to DB
-mongoose.connect(process.env.MONGO_URI, {
+const dotenv = require('dotenv');`},
+{'js': `\n`},
+{'comment': `Load env vars`},
+{'js': `dotenv.config({ path: './config/config.env' });`},
+{'js': `\n`},
+{'comment': `Load models`},
+{'js': `const Model = require('./route');`},
+{'js': `\n`},
+{'comment': `Connect to DB`},
+{'js': `mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
-});
-
-// Read JSON files
-const bootcamps = JSON.parse(
-    fs.readFileSync(\`\${__dirname}/_data/bootcamps.json\`, 'utf-8')
-);
-
-// Import into DB
-const importData = async () => {
+});`},
+{'js': `\n`},
+{'comment': `Read JSON files`},
+{'js': `const data = JSON.parse(
+    fs.readFileSync(\`\${__dirname}/route\`, 'utf-8')
+);`},
+{'js': `\n`},
+{'comment': `Import into DB`},
+{'js': `const importData = async () => {
     try {
-        await Bootcamp.create(bootcamps);
-
-        console.log('Data Imported...'.green.inverse);
+        await Model.create(data);
+        console.log('Data Imported...');
         process.exit();
     } catch (error) {
         console.error(error);
     }
-}
-
-// Delete Data
-const deleteData = async () => {
+}`},
+{'js': `\n`},
+{'comment': `Delete Data`},
+{'js': `const deleteData = async () => {
     try {
-        await Bootcamp.deleteMany();
-
-        console.log('Data Destroyed...'.red.inverse);
+        await Model.deleteMany();
+        console.log('Data Destroyed...');
         process.exit();
     } catch (error) {
         console.error(error);
@@ -259,10 +257,17 @@ if (process.argv[2] === '-i') {
     importData();
 } else if (process.argv[2] === '-d') {
     deleteData();
-}`}
+}`},
+{'js': `\n`}
         ],
         // output
-        [],
+        [
+{'input': `node seeder.js -i`},
+{'output': `Data Imported...`},
+{'output': `\n`},
+{'input': `node seeder.js -d`},
+{'output': `Data Destroyed...`}
+        ],
         //render
         {'render': false}
     ],

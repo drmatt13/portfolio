@@ -546,11 +546,51 @@ a {
     display: none;
 }
 
+
+
+
+
+
+
+
+
+
 .social-container {
     width: 100%;
-    min-height: 600px;
-    background-color: rgba(119, 135, 160, 0.514);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
 }
+
+.social-container-container1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.social-container-socialdiv {
+    height: 10vh;
+    width: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 50%;
+    margin: 2vh;
+}
+
+.social-container-socialdiv svg {
+    width: 5vh;
+    height: 5vh;
+}
+
+
+
+
+
+
+
+
 
 @media screen and (max-height:600px) {
 

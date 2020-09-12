@@ -1,7 +1,6 @@
 // color && / || size
 // descriptionSmall
 
-// import in from fetch()
 const storeData = {
     "Fruity Pebbles": {
         "price": '10.00',
@@ -75,9 +74,10 @@ Object.keys(storeData).forEach((item, i) => {
     } else {
         outOfStock.push(false);
     }
+    // slugify below
     let route = item.replace(/ /g, "%20");
     router.get(`/${route}`, (req, res) => {
-        res.render(__dirname + "/../views/shopProduct", {storeData, index: i, pictures: picturesArray[i], soldOut: outOfStock[i]});
+        res.render(__dirname + "/../views/shopProduct", {routestoreData, index: i, pictures: picturesArray[i], soldOut: outOfStock[i]});
     });
 });
 

@@ -393,8 +393,6 @@ a {
 
 .social-container {
     width: 100%;
-    /* min-height: 600px; */
-    /* background-color: rgba(119, 135, 160, 0.514); */
     display: flex;
     flex-direction: column;
     align-items: center;
