@@ -1,11 +1,21 @@
-const ngrok = require('ngrok');
-
 const express = require("express");
+const dotenv = require('dotenv');
+const colors = require( 'colors');
+
 const app = express();
 
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-app.set('view engine', 'ejs');
+// Load env vars
+dotenv.config({ path: './config/config.env' });
+
+// Connect to database
+const connectDB = require('./config/db');
+connectDB();
+
+// Body Parser
+app.use(express.json());
 
 //use the notes.js file to handle
 //endpoints that start with notes
@@ -28,10 +38,11 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
+const ngrok = require('ngrok');
 app.listen(PORT, () => {
-    // (async function() {
-    //     const endPoint = await ngrok.connect(PORT);
-    //     console.log(endPoint);
-    // })()
-    console.log('3000');
+    (async function() {
+        const endPoint = await ngrok.connect(PORT);
+        console.log(endPoint.yellow);
+    })()
+    // console.log('3000');
 });
