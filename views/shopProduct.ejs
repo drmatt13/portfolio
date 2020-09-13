@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= Object.keys(storeData)[index] %></title>
+    <title><%= storeData[index].name %></title>
     <link rel="stylesheet" href="/css/shop/shopProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
@@ -134,12 +134,7 @@
             <img id="banner" src="" alt="banner">
         </div>
         <div class="shop-products" id="shop-products">
-            <h1><%= Object.keys(storeData)[index] %></h1>
-            <div class="products">
-                <% for(var i=0; i<Object.keys(storeData).length; i++) {%>
-                    <div id="<%= Object.keys(storeData)[i] %>" class="item"></div>
-                <% } %>
-            </div>
+            <h1><%= storeData[index].name %></h1>
             <div class="shop-products-container">
 
                 <div class="testtest">
@@ -148,34 +143,34 @@
                         <% for(let [i, pic] of pictures.entries()) {%>
                             <% if (i == 0) { %>
                                 <div class="img no-select selected">
-                                    <img src="/shop/products/<%= Object.keys(storeData)[index] %>/<%= pic %>" alt="test">
+                                    <img src="/shop/products/<%= storeData[index].name %>/<%= pic %>" alt="test">
                                 </div>
                             <%} else { %>
                                 <div class="img no-select">
-                                    <img src="/shop/products/<%= Object.keys(storeData)[index] %>/<%= pic %>" alt="test">
+                                    <img src="/shop/products/<%= storeData[index].name %>/<%= pic %>" alt="test">
                                 </div>
                             <% } %>
                         <% } %>
                     </div>
                     <div class="item-container">
                         <div class="item-container-image-container no-select">
-                            <img src="/shop/products/<%= Object.keys(storeData)[index] %>/1.png" alt="<%= Object.keys(storeData)[index] %>">
+                            <img src="/shop/products/<%= storeData[index].name %>/1.png" alt="<%= storeData[index].name %>">
                             <% if (soldOut) { %>
                                 <div class="sold-out no-select">Sold Out</div>
                             <%} %>
                         </div>
-                        <div class="item-container-footer">$<%= storeData[Object.keys(storeData)[index]].price %></div>
+                        <div class="item-container-footer">$<%= storeData[index].price %> USD</div>
                     </div>
 
                 </div>
 
                 <div class="large-description">
-                    <div><%= storeData[Object.keys(storeData)[index]].descriptionLarge %></div>
+                    <div><%= storeData[index].descriptionLarge %></div>
                 </div>
 
                 <div class="testtest2">
-                    <div>Purple Dream</div>
-                    <div>$40.00 USD</div>
+                    <div><%= storeData[index].name %></div>
+                    <div>$<%= storeData[index].price %> USD</div>
                 </div>
 
                 <div class="final">
@@ -200,7 +195,7 @@
                 </div>
 
                 <div class="second-large-description">
-                    <div><%= storeData[Object.keys(storeData)[index]].descriptionLarge %></div>
+                    <div><%= storeData[index].descriptionLarge %></div>
                 </div>
 
 

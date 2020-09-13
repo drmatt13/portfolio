@@ -46,7 +46,6 @@
         </div>
         <nav class="navbar">
             <div class="nav-child1 logo no-select">
-                <!-- <img class="logo" src="/shop/media/mlk.png" alt="mlk"> -->
                 <h2>City Point Exotics</h2>
             </div>
             <div class="nav-child2">
@@ -62,22 +61,19 @@
         <div class="shop-products" id="shop-products">
             <h1>SHOP</h1>
             <div class="shop-products-container">
-            <% for(var i=0; i<Object.keys(storeData).length; i++) {%>
-                <div class="item-container">
-                    <% if (soldOut[i]) { %>
+            <% for(let i=0; i<storeData.length; i++) {%>
+                <div link="<%= storeData[i].slug %>" class="item-container">
+                    <% if (soldOut) { %>
                         <div class="sold-out no-select">Sold Out</div>
                     <%} %>
-                    <div class="item-container-image-container no-select"><img src="/shop/products/<%= Object.keys(storeData)[i] %>/1.png" alt="<%= Object.keys(storeData)[i] %>"></div>
-                    <div class="item-container-title"><%= Object.keys(storeData)[i] %></div>
-                    <div class="item-container-footer">$<%= storeData[Object.keys(storeData)[i]].price %></div>
+                    <div class="item-container-image-container no-select"><img src="/shop/products/<%= storeData[i].name %>/1.png" alt="<%= storeData[i].name %>"></div>
+                    <div class="item-container-title"><%= storeData[i].name %></div>
+                    <div class="item-container-footer">$<%= storeData[i].price %></div>
                 </div>
             <% } %>
             </div>
         </div>
         <div class="social-container" id="social">
-
-
-
 
             <div class="social-container-container1">
 
@@ -128,9 +124,6 @@
 
         </div>
     </div>
-    <% for(var i=0; i<Object.keys(storeData).length; i++) {%>
-        <div id="<%= Object.keys(storeData)[i] %>" class="item"></div>
-    <% } %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/scripts/shopHome.js"></script>
 </body>

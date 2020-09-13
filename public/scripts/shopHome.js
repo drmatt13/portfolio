@@ -48,13 +48,10 @@ if (!isMobile) {
   banner.src = '/shop/media/flower2.jpg';
 }
 
-let items = [];
-itemContainers = document.querySelectorAll(".item-container");
-itemDivs = document.querySelectorAll(".item");
-for (let i=0; i<itemDivs.length; i++) {
-  items.push(itemDivs[i].id);
+const itemContainers = document.querySelectorAll(".item-container");
+for (let i=0; i<itemContainers.length; i++) {
   itemContainers[i].addEventListener("click", () => {
-      window.location.href = `/shop/${items[i]}`;
+      window.location.href = `/shop/${itemContainers[i].getAttribute('link')}`;
     });
 }
 

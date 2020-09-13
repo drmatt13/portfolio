@@ -56,4 +56,13 @@ const StoreSchema = new mongoose.Schema({
     descriptionLarge: String
 });
 
+//slugify
+StoreSchema.pre('save', function() {
+    this.slug = slugify(this.name, {
+        replacement: '-',
+        remove: undefined,
+        lower: true
+    })
+});
+
 module.exports = mongoose.model('Item', StoreSchema);

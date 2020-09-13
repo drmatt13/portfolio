@@ -11,8 +11,10 @@ app.use(express.static(__dirname + '/public'));
 dotenv.config({ path: './config/config.env' });
 
 // Connect to database
-const connectDB = require('./config/db');
-connectDB();
+if (!process.env.OFFLINE) {
+    const connectDB = require('./config/db');
+    connectDB();
+}
 
 // Body Parser
 app.use(express.json());
@@ -40,9 +42,9 @@ const PORT = process.env.PORT || 3000;
 
 const ngrok = require('ngrok');
 app.listen(PORT, () => {
-    (async function() {
-        const endPoint = await ngrok.connect(PORT);
-        console.log(endPoint.yellow);
-    })()
-    // console.log('3000');
+    // (async function() {
+    //     const endPoint = await ngrok.connect(PORT);
+    //     console.log(endPoint.yellow);
+    // })()
+    console.log('3000'.yellow);
 });

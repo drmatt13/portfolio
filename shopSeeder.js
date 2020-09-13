@@ -46,8 +46,26 @@ const deleteData = async () => {
     }
 }
 
+// overwrite Data
+const overwriteData = async () => {
+    try {
+        await Store.deleteMany();
+    } catch (error) {
+        console.error(error);
+    }
+    try {
+        await Store.create(items);
+        console.log('Data Overwritten...'.cyan.inverse);
+        process.exit();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 if (process.argv[2] === '-i') {
     importData();
 } else if (process.argv[2] === '-d') {
     deleteData();
+} else if (process.argv[2] === '-o') {
+    overwriteData();
 }
