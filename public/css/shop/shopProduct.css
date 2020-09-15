@@ -248,12 +248,22 @@ a {
 }
 
 .navbar {
+    top: 0;
+    position: fixed;
     height: 100px;
     width: 100%;
     padding: 10px 50px;
     display: flex;
     background-color: rgb(255, 255, 255);
     font-size: large;
+    z-index: 9;
+    transition: .2s linear;
+    box-shadow: 1px 1px 10px 1px hsla(0, 0%, 50%, 0.3);
+}
+
+.navbarScrollDown {
+    position: sticky;
+    transform: translateY(-100px);
 }
 
 .shop-btn a:hover {
@@ -340,6 +350,10 @@ a {
 
 .advertisement-container {
     width: 100%;
+}
+
+.advertisement-container-margin {
+    margin-top: 100px;
 }
 
 .advertisement-container img {
@@ -546,21 +560,14 @@ a {
     display: none;
 }
 
-
-
-
-
-
-
-
-
-
 .social-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 50px;
+    height: 500px;
+    background-color: rgba(205, 92, 92, 0.342);
 }
 
 .social-container-container1 {
@@ -583,14 +590,6 @@ a {
     width: 5vh;
     height: 5vh;
 }
-
-
-
-
-
-
-
-
 
 @media screen and (max-height:600px) {
 
@@ -653,6 +652,10 @@ a {
     .navbar {
         height: 75px;
         padding: 10px 20px;
+    }
+
+    .advertisement-container-margin {
+        margin-top: 75px;
     }
 
     .nav-child1 {
@@ -780,7 +783,7 @@ a {
     
     .images-container div {
         height: 10vw;
-        width: 50vw;
+        width: 10vw;
     }
 
     .item-container {
@@ -863,10 +866,7 @@ a {
     
     .images-container div {
         height: 13vw;
-    }
-    
-    .img {
-        width: 13vw;
+        width: calc(13vw);
     }
     
     .item-container {

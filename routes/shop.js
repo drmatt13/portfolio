@@ -38,7 +38,7 @@ router
         if (!process.env.OFFLINE) {
             updateStore();
         }
-        res.render(__dirname + "/../views/shopHome", {storeData, soldOut: true});
+        res.render(__dirname + "/../views/shopHome", {storeData});
     });
 
 router

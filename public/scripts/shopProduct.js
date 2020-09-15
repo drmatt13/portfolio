@@ -20,27 +20,6 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
       isMobile = true;
 }
 
-let test = document.querySelectorAll(".logo");
-for (let i=0; i<test.length; i++) {
-  test[i].addEventListener('click', () => {
-    window.location.href = '/shop';
-  });
-}
-
-//cart-btn click
-const modalContainer = document.querySelector(".modal-container");
-const cartBtn = document.querySelector(".cart-btn");
-const exitBtn = document.querySelector(".exit-btn");
-cartBtn.addEventListener('click', () => {
-    modalContainer.classList.toggle("visable");
-    document.body.classList.toggle("hide-scroll");
-    modalContainer.classList.add("transition");
-});
-exitBtn.addEventListener('click', () => {
-    modalContainer.classList.toggle("visable");
-    document.body.classList.toggle("hide-scroll");
-});
-
 const banner = document.getElementById("banner");
 if (!isMobile) {
   banner.src = '/shop/media/flower1.jpg';
@@ -48,13 +27,56 @@ if (!isMobile) {
   banner.src = '/shop/media/flower2.jpg';
 }
 
-let items = [];
-itemContainers = document.querySelectorAll(".item-container");
-itemDivs = document.querySelectorAll(".item");
-
-document.querySelector(".checkout-btn").addEventListener("click", () => {
-  window.location.href = 'checkout';
+//navbar stuff ----
+let pageYOffset = 0;
+delayStart = 0;
+delayEnd = 10;
+const navbar = document.getElementById("navbar");
+const advertisement = document.getElementById("advertisement");
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset < pageYOffset) {
+    navbar.classList.remove("navbarScrollDown");
+    advertisement.classList.add("advertisement-container-margin");
+  } 
+  if (window.pageYOffset > pageYOffset && window.pageYOffset > 100){
+    navbar.classList.add("navbarScrollDown");
+    advertisement.classList.remove("advertisement-container-margin");
+  }
+  pageYOffset = window.pageYOffset;
 });
+
+
+let test = document.querySelectorAll(".logo");
+for (let i=0; i<test.length; i++) {
+  test[i].addEventListener('click', () => {
+    window.location.href = '/shop';
+  });
+}
+
+const openCart = () => {
+  modalContainer.classList.add("visable");
+  document.body.classList.add("hide-scroll");
+  modalContainer.classList.add("transition");
+};
+
+const closeCart = () => {
+  modalContainer.classList.remove("visable");
+  document.body.classList.remove("hide-scroll");
+}
+
+//cart-btn click
+const modalContainer = document.querySelector(".modal-container");
+const cartBtn = document.querySelector(".cart-btn");
+const exitBtn = document.querySelector(".exit-btn");
+
+cartBtn.addEventListener('click', () => {
+  openCart();
+});
+exitBtn.addEventListener('click', () => {
+  closeCart();
+});
+
+itemContainers = document.querySelectorAll(".item-container");
 
 let selectedPicture = 0;
 let itemContainerImageContainer = document.querySelector(".item-container-image-container");
@@ -72,7 +94,69 @@ for (let i=0; i<imgDivs.length; i++) {
     imgDivs[i].classList.add("selected");
     selectedPicture = i;
   });
-  // imgDivs[i].addEventListener("mouseout", () => {
-  //   itemContainerImageContainer.childNodes[1].src = "/shop" + imgDivs[selectedPicture].childNodes[1].src.split(['shop'])[1];
-  // });
+};
+
+const productName = document.getElementById("product-name");
+
+const iterateItemInStorage = (item) => {
+  if (!localStorage.getItem(item)) {
+    return 1
+  } else {
+    return +localStorage.getItem(item) + 1;
+  }
+};
+
+const masterCartContainer = document.getElementById("master-cart-container");
+const clearCart = () => {
+  masterCartContainer.innerHTML = '';
+};
+
+const updateSubtotal = () => {
+
 }
+
+const updateCart = () => {
+  clearCart();
+  for (let i=0; i<localStorage.length; i++) {
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-container");
+    cartItem.innerHTML += `
+    <div class="cart-container-image-container"><img src="/shop/products/${localStorage.key(i)}/1.png" alt="${localStorage.key(i)}"></div>
+    <div class="cart-container-title">
+      <div class="cart-container-title-header">
+        <div>${localStorage.key(i)}</div>
+      </div>
+      <div class="cart-container-title-footer">
+        <div>color / size</div><div>$10.00</div>
+      </div>
+    </div>
+    <div class="cart-container-footer"><div id="cartItem${i}" class="fas fa-times-circle"></div></div>`;
+    cartItem.addEventListener("click", () => {
+      console.log(localStorage.key(i));
+      localStorage.removeItem(localStorage.key(i));
+      cartItem.parentElement.removeChild(cartItem);
+      updateCart();
+    });
+    masterCartContainer.appendChild(cartItem);
+  }
+  updateSubtotal();
+};
+
+const addItemToCart = () => {
+  openCart();
+  localStorage.setItem(`${productName.innerHTML}`, 
+  `${iterateItemInStorage(productName.innerHTML)}`);
+  updateCart();
+};
+
+// add to cart
+const addBtn = document.getElementById("add-btn");
+addBtn.addEventListener("click", () => {
+  addItemToCart();
+});
+
+document.querySelector(".checkout-btn").addEventListener("click", () => {
+  window.location.href = 'checkout';
+});
+
+updateCart();

@@ -42,9 +42,12 @@ const PORT = process.env.PORT || 3000;
 
 const ngrok = require('ngrok');
 app.listen(PORT, () => {
-    // (async function() {
-    //     const endPoint = await ngrok.connect(PORT);
-    //     console.log(endPoint.yellow);
-    // })()
-    console.log('3000'.yellow);
+    if (!process.env.OFFLINE) {
+        (async function() {
+            const endPoint = await ngrok.connect(PORT);
+            console.log(endPoint.yellow);
+        })()
+    } else {
+        console.log('3000'.yellow);
+    }
 });

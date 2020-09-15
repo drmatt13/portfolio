@@ -63,9 +63,22 @@
             <div class="shop-products-container">
             <% for(let i=0; i<storeData.length; i++) {%>
                 <div link="<%= storeData[i].slug %>" class="item-container">
-                    <% if (soldOut) { %>
-                        <div class="sold-out no-select">Sold Out</div>
-                    <%} %>
+
+                    <% if (storeData[i].product === 'item' || storeData[i].product === 'onesize') { %>
+                        <% if (storeData[i].quantity === 0) { %> 
+                            <div class="sold-out no-select">Sold Out</div>
+                        <% } %>
+
+                    <% } else if (storeData[i].product === 'shirt' || storeData[i].product === 'leggings') { %>
+                        <% let quantity = 0; %>
+                        <% for (let key in storeData[i].letterSize) { %>
+                            <% quantity += storeData[i].letterSize[key]; %>
+                        <% } %>
+                        <% if (quantity === 0) { %>
+                            <div class="sold-out no-select">Sold Out</div>
+                        <% } %>
+                    <% } %>
+
                     <div class="item-container-image-container no-select"><img src="/shop/products/<%= storeData[i].name %>/1.png" alt="<%= storeData[i].name %>"></div>
                     <div class="item-container-title"><%= storeData[i].name %></div>
                     <div class="item-container-footer">$<%= storeData[i].price %></div>

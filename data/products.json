@@ -3,8 +3,8 @@
         "name": "Fruity Pebbles",
         "slug": "fruity-pebbles",
         "price": 10.00,
-        "product": "item",
-        "item": 40,
+        "product": "onesize",
+        "quantity": 10,
         "descriptionSmall": "test small description",
         "descriptionLarge": "One variety, created by breeders Alien Genetics, was marketed as Fruity Pebbles OG, an April 2012 limited edition. Packs of these special Fruity Pebbles OG seeds sold for $1,000-$1,500 each. The mother, a cross of Green Ribbon and Granddaddy Purps, was bred with a strain crossed from Tahoe OG and Alien Kush."
     },
@@ -13,7 +13,7 @@
         "slug": "girl-scout-cookies",
         "price": 10.00,
         "product": "item",
-        "item": 60,
+        "quantity": 0,
         "descriptionSmall": "test small description",
         "descriptionLarge": "By crossing two super popular strains, the underground breeding collective Cookie Family (or Cookie Fam) has been able to elevate THC levels to a whopping average of 25% to 28% and boast CBD and CBN contents to 1% as well. If that wasn’t enough to entice you, then the flavor and aroma will definitely draw you in. At first opening of the bag the sweet, earthy aromas hit your nose and only grow sweeter as you break apart the buds."
     },
@@ -22,7 +22,7 @@
         "slug": "hindu-kush",
         "price": 30.00,
         "product": "item",
-        "item": 25,
+        "quantity": 55,
         "descriptionSmall": "test small description",
         "descriptionLarge": "One of the original landrace strains that precipitated the popularization of cannabis throughout the world, Hindu Kush is a potent pure indica. It is indigenous to the Hindu Kush mountain chain that forms the border between Pakistan and Afghanistan."
     },
@@ -31,7 +31,7 @@
         "slug": "purple-dream",
         "price": 25.00,
         "product": "item",
-        "item": 9,
+        "quantity": 9,
         "descriptionSmall": "test small description",
         "descriptionLarge": "A California medical scene cut that is a classic, Purple Dream is thought to have come from the Mendo Purps line. It's a slow-vegging plant that almost always turns a deep shade of purple by the time it's finished. It's the purple plant of choice for many, as it's known for being more potent and flavorful than many of the others. Green Crack has a classically indica bud structure, with dense buds that are more small and clustered than chunky. The leaves are pale green to yellow, although the pigments in some phenotypes can cause some leaves to be streaked with purple when plants are exposed to cold during the growing process. Rust-colored pistils stand out against the colorful flowers. The buds are also coated in milky-white trichomes, giving them a sticky texture and a glistening appearance."
     },
@@ -40,7 +40,7 @@
         "slug": "green-crack",
         "price": 60.00,
         "product": "item",
-        "item": 3,
+        "quantity": 3,
         "descriptionSmall": "test small description",
         "descriptionLarge": "Green Crack has a classically indica bud structure, with dense buds that are more small and clustered than chunky. The leaves are pale green to yellow, although the pigments in some phenotypes can cause some leaves to be streaked with purple when plants are exposed to cold during the growing process. Rust-colored pistils stand out against the colorful flowers. The buds are also coated in milky-white trichomes, giving them a sticky texture and a glistening appearance."
     }

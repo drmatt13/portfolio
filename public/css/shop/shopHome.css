@@ -464,8 +464,13 @@ a {
 }
 
 @media screen and (max-width:1000px) {
+
     .cart-container-footer {
         font-size: 2vw;
+    }
+
+    .sold-out {
+        padding: .45vw;
     }
 }
 
@@ -491,6 +496,11 @@ a {
 
     .checkout-container {
         width: 240px;
+    }
+
+    .sold-out {
+        padding: .55vw;
+        font-size: small;
     }
 }
 

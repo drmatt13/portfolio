@@ -14,22 +14,25 @@ const StoreSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'Please add a price'],
     },
+    salePrice: {
+        type: Number
+    },
     // item, onesize, shirt, pants, socks, shoes
     product: {
         type: String,
         required: [true, 'item, onesize, shirt, leggings, shoes'],
         trim: true
     },
-    item: Number,
-    onesize: Number,
-    shirt: {
+    quantity: Number,
+    letterSize: {
         s: Number,
         m: Number,
         l: Number,
         xl: Number,
         xxl: Number
     },
-    leggings: {
+    // fix number size
+    numberSize: {
         s: Number,
         m: Number,
         l: Number,
