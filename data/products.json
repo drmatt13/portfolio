@@ -2,7 +2,7 @@
     {
         "name": "Fruity Pebbles",
         "slug": "fruity-pebbles",
-        "price": 10.00,
+        "price": 99.00,
         "product": "onesize",
         "quantity": 10,
         "descriptionSmall": "test small description",
@@ -11,7 +11,7 @@
     {
         "name": "Girl Scout Cookies",
         "slug": "girl-scout-cookies",
-        "price": 10.00,
+        "price": 13.95,
         "product": "item",
         "quantity": 0,
         "descriptionSmall": "test small description",
@@ -43,5 +43,20 @@
         "quantity": 3,
         "descriptionSmall": "test small description",
         "descriptionLarge": "Green Crack has a classically indica bud structure, with dense buds that are more small and clustered than chunky. The leaves are pale green to yellow, although the pigments in some phenotypes can cause some leaves to be streaked with purple when plants are exposed to cold during the growing process. Rust-colored pistils stand out against the colorful flowers. The buds are also coated in milky-white trichomes, giving them a sticky texture and a glistening appearance."
+    },
+    {
+        "name": "Shirt Test",
+        "slug": "shirt-test",
+        "price": 20.00,
+        "product": "shirt",
+        "letterSize": {
+            "s": 20,
+            "m": 20,
+            "l": 20,
+            "xl": 0,
+            "xxl": 20
+        },
+        "descriptionSmall": "test small description",
+        "descriptionLarge": "The classic City Point Exotics style is back and better than ever with our first new blend of 100% premium cotton in a vintage garment dyed wash. This is your everyday tee prefect for any adventure."
     }
 ]

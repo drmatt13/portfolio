@@ -159,14 +159,6 @@ for (let i=cards.length-1; i>0; i--) {
 };
 let buttons = document.querySelectorAll('.button');
 let buttonPointer = [];
-for (let i=0; i<array.length; i++) {
-    if (array[i][4].render) {
-        buttonPointer.push(count)
-        modifyButtonYspace(count);
-        buttons[count].addEventListener('click', () => {buildApp(i)});
-        count++;
-    } else buttonPointer.push(null);
-}
 const modifyButtonYspace = (i) => {
     let y1 = document.querySelectorAll('.card')[i].clientHeight;
     let y2 = document.querySelectorAll('.card')[i].scrollHeight;
@@ -177,6 +169,14 @@ const modifyButtonYspace = (i) => {
             buttons[buttonPointer[i]].classList.remove('y-space');
         }
     }
+}
+for (let i=0; i<array.length; i++) {
+    if (array[i][4].render) {
+        buttonPointer.push(count)
+        modifyButtonYspace(count);
+        buttons[count].addEventListener('click', () => {buildApp(i)});
+        count++;
+    } else buttonPointer.push(null);
 }
 const ButtonSizeUpdate = () => {for (i in array) modifyButtonYspace(i)};
 window.addEventListener('resize', ButtonSizeUpdate);

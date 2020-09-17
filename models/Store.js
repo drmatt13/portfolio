@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 const slugify = require('slugify');
 
 const StoreSchema = new mongoose.Schema({
+    // _id: {
+    //     type: Number,
+    //     required: [true, 'Please add an ID'],
+    //     unique: true,
+    //     trim: true,
+    //     maxlength: [50, 'Name can not be more then 50 characters']
     name: {
         type: String,
         required: [true, 'Please add a name'],

@@ -42,7 +42,7 @@ const PORT = process.env.PORT || 3000;
 
 const ngrok = require('ngrok');
 app.listen(PORT, () => {
-    if (!process.env.OFFLINE) {
+    if (true) {
         (async function() {
             const endPoint = await ngrok.connect(PORT);
             console.log(endPoint.yellow);
