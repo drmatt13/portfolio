@@ -20,13 +20,21 @@ const fetchStoreData = async () => {
     .then(response => response.json())
     .then(data => {
       storeData = data;
+      // fix local storage
+      for (let i of Object.entries(localStorage)) {
+        let exists = false;
+        for (let j=0; j<storeData.length; j++) {
+          if (i[0] == storeData[j].name) exists = true;
+        }
+        if (exists == false) localStorage.removeItem(i[0]);
+      }
       promiseFulfilled = true;
     });
 }
 fetchStoreData();
 
 const getIndex = (array, attr, value) => {
-  for(var i = 0; i < array.length; i += 1) {
+  for (var i = 0; i < array.length; i += 1) {
     if(array[i][attr] === value) {
       return i;
     }

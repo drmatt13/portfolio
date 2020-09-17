@@ -9,6 +9,24 @@
         "descriptionLarge": "One variety, created by breeders Alien Genetics, was marketed as Fruity Pebbles OG, an April 2012 limited edition. Packs of these special Fruity Pebbles OG seeds sold for $1,000-$1,500 each. The mother, a cross of Green Ribbon and Granddaddy Purps, was bred with a strain crossed from Tahoe OG and Alien Kush."
     },
     {
+        "name": "Swiss Cheese",
+        "slug": "swiss-cheese",
+        "price": 125.25,
+        "product": "onesize",
+        "quantity": 10,
+        "descriptionSmall": "test small description",
+        "descriptionLarge": "weet Cheese from Sweet Seeds. 🧀 This strain unites genetics from two high-grade strains to create a high producing plant with a revolutionary aged cheese flavor."
+    },
+    {
+        "name": "Blueberry Og",
+        "slug": "blueberry-og",
+        "price": 67.50,
+        "product": "onesize",
+        "quantity": 10,
+        "descriptionSmall": "test small description",
+        "descriptionLarge": "Blueberry OG is a DJ Short Blueberry phenotype with exceptional CBD yielding qualities combined with the indica-dominant legend, OG Kush. This potent, award-winning union doesn’t pack much in the way of psychoactivity, but its anti-anxiety and anti-inflammatory effects make up for any lack of headiness. With flavors of sweet camphor and sandalwood, this strain elevates the consumer's mood and promotes an overall sense of well being."
+    },
+    {
         "name": "Hindu Kush",
         "slug": "hindu-kush",
         "price": 30.00,
@@ -49,5 +67,14 @@
         },
         "descriptionSmall": "test small description",
         "descriptionLarge": "The classic City Point Exotics style is back and better than ever with our first new blend of 100% premium cotton in a vintage garment dyed wash. This is your everyday tee prefect for any adventure."
+    },
+    {
+        "name": "Wedding Cake",
+        "slug": "wedding-cake",
+        "price": 48.37,
+        "product": "item",
+        "quantity": 30,
+        "descriptionSmall": "test small description",
+        "descriptionLarge": "Wedding Cake, sometimes known as Pink Cookies or Birthday Cake, is a strain that leans on some very popular genetics to yield a balanced high and a dynamic taste. It is a cross between sour hybrid Cherry Pie and the universally appealing Girl Scout Cookies. And although its flavor may vary depending on the phenotype, Wedding Cake doesn’t exactly taste like any traditional nuptial dessert most have ever tasted -- instead, its profile is mostly sour and tangy with just a hint of creaminess. Increasingly popular for its well-rounded effects, Wedding Cake has both recreational and medical applications. Cannabis testing lab Analytical 360 has founded flowers of this strain to have between 16 and a staggering 25% THC."
     }
 ]
