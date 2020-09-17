@@ -12,14 +12,18 @@ const fs = require("fs");
 let pictures = [];
 
 const updateStore = async () => {
-    storeData = await Store.find();
-    pictures = [];
-    for (let [i, item] of storeData.entries()) {
-        console.log(storeData[i].slug);
-        pictures.push(fs.readdirSync(__dirname + "/../public/shop/products/" + item.name));
+    try {
+        storeData = await Store.find();
+        pictures = [];
+        for (let [i, item] of storeData.entries()) {
+            // console.log(storeData[i].slug);
+            pictures.push(fs.readdirSync(__dirname + "/../public/shop/products/" + item.name));
     }
     console.log("store updated".cyan.bold);
     checked = true;
+    } catch(error) {
+        console.log(error.red);
+    }
 }
 
 
@@ -36,8 +40,8 @@ const createRoutes = () => {
         for (let [i, item] of storeData.entries()) {
             pictures.push(fs.readdirSync(__dirname + "/../public/shop/products/" + item.name));
         
-            console.log(storeData[i].slug);
-            console.log(i);
+            // console.log(storeData[i].slug);
+            // console.log(i);
             router.get(`/${storeData[i].slug}`, async (req, res) => {
                 if (!process.env.OFFLINE) {
                     updateStore();
