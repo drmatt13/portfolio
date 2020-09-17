@@ -36,7 +36,7 @@ app.use("/shop", shop);
 
 app.get("/", (req, res) => {
     // res.send('<a href="/shop">shop</a>');
-    res.render("/views/Home");
+    res.render(__dirname + "/views/home");
 });
 
 const PORT = process.env.PORT || 3000;
