@@ -31,7 +31,7 @@ if (!process.env.OFFLINE) {
 // product routes ghetto
 
 const createRoutes = () => {
-    if (!checked) setTimeout(createRoutes, 100);
+    if (!checked) setTimeout(createRoutes, 500);
     if (checked) {
         for (let [i, item] of storeData.entries()) {
             pictures.push(fs.readdirSync(__dirname + "/../public/shop/products/" + item.name));
