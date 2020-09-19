@@ -382,7 +382,7 @@ a {
     margin-right: 20px;
     width: 50px;
     height: 50px;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -394,6 +394,30 @@ a {
 
 .nav-child2 div:hover {
     cursor: pointer;
+}
+
+.cart-btn:first-of-type {
+    
+}
+
+.cart-circle-container {
+    position: absolute;
+    margin: 0!important;
+    /* background-color: rgba(255, 0, 0, 0.5); */
+    /* z-index: -5; */
+    /* border-radius: 50%; */
+}
+
+.cart-circle {
+    position: absolute;
+    height: 17.5px!important;
+    width: 17.5px!important;
+    bottom: 6.5px;
+    right: 6.5px;
+    border-radius: 50%;
+    background-color: rgba(255, 25, 25, 0.8);
+    font-size: small;
+    font-weight: 900;
 }
 
 .nav-child3 {
@@ -411,7 +435,8 @@ a {
 }
 
 .nav-child3 img path:hover {
-    fill: rgba(46, 139, 86, 0.75);
+    /* doesnt work */
+    /* fill: rgba(46, 139, 86, 0.75); */
 }
 
 .nav-child3 img {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "offline": "cross-env OFFLINE=true nodemon server.js"
+    "offline": "cross-env OFFLINE=true NGROK=true nodemon server.js"
   },
   "author": "",
   "license": "ISC",

@@ -30,7 +30,11 @@ masterContainer.innerHTML += `
         <h2>City Point Exotics</h2>
     </div>
     <div class="nav-child2">
-        <div class="cart-btn"><div class="fas fa-shopping-cart"></div></div>
+        <div class="cart-btn"><div class="fas fa-shopping-cart"></div>
+            <div class="cart-circle-container">
+                <div class="cart-circle">55</div>
+            </div>
+        </div>
         <div class="about-btn"><a href="#social">about</a></div>
         <div class="shop-btn"><a href="${shopBtnHref}">${shopBtnText}</a></div>
     </div>
