@@ -24,11 +24,11 @@ body {
   position: absolute;
   right: 0;
   bottom: 0;
-  margin: 25px;
+  margin: 20px;
 }
 
 .btn-container button {
-  padding: 25px;
+  padding: 10px;
 }
 
 .sortBar {

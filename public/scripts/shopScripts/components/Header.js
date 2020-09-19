@@ -1,7 +1,7 @@
-let shopBtn = 'home';
+let shopBtnText = 'home';
 let shopBtnHref = './';
 if (window.location.pathname == '/shop/') {
-    shopBtn = 'shop';
+    shopBtnText = 'shop';
     shopBtnHref = '#shop-products';
 };
 
@@ -32,7 +32,7 @@ masterContainer.innerHTML += `
     <div class="nav-child2">
         <div class="cart-btn"><div class="fas fa-shopping-cart"></div></div>
         <div class="about-btn"><a href="#social">about</a></div>
-        <div class="shop-btn"><a href="${shopBtnHref}">${shopBtn}</a></div>
+        <div class="shop-btn"><a href="${shopBtnHref}">${shopBtnText}</a></div>
     </div>
     <div class="nav-child3"><img class="logo no-select" src="/shop/media/leaf.svg" alt="fist"></div>
 </nav>

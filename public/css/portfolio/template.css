@@ -49,9 +49,34 @@ body {
   background: #4b4b4b;
 }
 
+html, body {
+  height: 100%;
+  background: #3d3d3d;
+}
+
+body {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: 0 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  overflow-y: none;
+}
+
 .display-master-main {
   background: #3d3d3d;
-  height: calc(var(--vh, 1vh) * 100);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  top: 0.5px;
+  left: 0;
+  right: 0;
+  bottom: 0.5px;
 }
 
 .show-nav-main {
@@ -71,7 +96,7 @@ body {
   top: 0;
   left: -200px;
   width: 200px;
-  height: 100vh;
+  height: 100%;
   z-index: 1000;
   transition: transform 0.3s ease;
   overflow-y: auto;
@@ -134,7 +159,7 @@ body {
 
 .header {
   width: 95%;
-  height: 10vh;
+  height: 10%;
   display: flex;
   justify-content: space-around;
   color: #fff;
@@ -142,8 +167,8 @@ body {
 
 .toggleNav {
   position: absolute;
-  height: 7.5vh;
-  top: 1.25vh;
+  height: 7.5%;
+  top: 1.25%;
   left: 1vw;
   transition: transform 0.3s ease;
   z-index: 8;
@@ -161,8 +186,8 @@ body {
 .header-div2 {
   display: flex;
   align-items: center;
-  padding-left: calc(1vw + 7.5vh);
-  padding-right: calc(5vh);
+  padding-left: calc(1vw + 7.5%);
+  padding-right: calc(5%);
   color: #eee;
 }
 
@@ -177,7 +202,7 @@ body {
   right: 5%;
   height: 5vh;
   width: 5vh;
-  padding: 1vh;
+  padding: 1%;
   z-index: 1000;
   transition: transform 0.3s ease;
   display: flex;
@@ -187,8 +212,18 @@ body {
 
 .toggleSize img {
   position: relative;
-  height: 100%;
-  width: 100%;
+
+
+
+
+  height: 20px;
+  width: 20px;
+
+
+
+
+
+
   user-select: none;
 }
 
@@ -206,7 +241,7 @@ body {
 
 .display-main {
   background-color: #4b4b4b;
-  height: calc(80vh);
+  height: calc(80%);
   width: 90vw;
   position: relative;
   margin-left: auto;
@@ -249,7 +284,7 @@ body {
 }
 
 .d1-1 {
-  margin: 1vh;
+  margin: 1%;
   flex: 1;
   display: block;
   overflow: auto;
@@ -320,7 +355,7 @@ body {
 
 .d2-1 {
   background-color: #4b4b4b;
-  margin: 1vh;
+  margin: 1%;
   border: 1px solid #3d3d3d;
   box-shadow: var(--box-shadow);
   flex: 2;
@@ -340,7 +375,7 @@ body {
 
 .body2 {
   position: fixed;
-  height: 100vh;
+  height: 100%;
   left: 0;
   top: 0;
 }
@@ -349,9 +384,9 @@ body {
   position: absolute;
   display: flex;
   justify-content: space-around;
-  height: calc(10vh);
+  height: calc(10%);
   width: 90vw;
-  top: calc(90vh);
+  top: calc(90%);
   left: 5vw;
 }
 
@@ -457,12 +492,12 @@ body {
     height: 25px;
     width: 25px;
     top: 25px;
-    right: calc(5vw - 10px);
+    /* right: calc(5vw - 10px); */
   }
 
   .toggleSize img {
-    height: 15px;
-    width: 15px;
+    /* height: 15px;
+    width: 15px; */
 }
 
   .toggleSize2 {

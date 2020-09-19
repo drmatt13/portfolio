@@ -192,9 +192,18 @@ const closeCart = () => {
 
 //cart-btn click
 const modalContainer = document.querySelector(".modal-container");
+const shopBtn = document.querySelector(".shop-btn")
 const cartBtn = document.querySelector(".cart-btn");
 const exitBtn = document.querySelector(".exit-btn");
 
+shopBtn.addEventListener('click', () => {
+  setTimeout(() => {
+    advertisement.classList.remove("advertisement-container-margin");
+    navbar.classList.add("navbar-scrollDown");
+    navbar.classList.add("navbar-scrollUp");
+    navbarVisable = false;
+  }, 850);
+});
 cartBtn.addEventListener('click', () => {
   openCart();
 });
