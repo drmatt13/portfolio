@@ -1,0 +1,29 @@
+<h1>register</h1>
+
+
+
+
+<form action="/bcrypt_jwt_auth/register" method="post">
+
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname" required><br><br>
+
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="lname" required><br><br>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="password2">Password verify not required yet:</label>
+    <input type="password" id="password2" name="password2"><br><br>
+
+    <input type="submit" value="Register">
+</form>
+
+<a href="/bcrypt_jwt_auth">return to login</a>

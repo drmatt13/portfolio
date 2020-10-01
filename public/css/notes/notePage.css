@@ -1,0 +1,248 @@
+:root {
+    --box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.06), 0 2px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7.5px;
+    height: 7.5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #4b4b4b;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+::-webkit-scrollbar-corner {
+    background: #4b4b4b;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* scroll bar solution */
+    padding-left: calc(100vw - 100%);
+    /* scroll bar solution */
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    min-height: 100vh;
+    background-color: #305c50;
+    background-image: linear-gradient(28deg, #305c50 0%, #6ab19e 70%, #82d8a6 100%);
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.card {
+    position: relative;
+    background-color: #4b4b4b;
+    box-shadow: var(--box-shadow);
+    width: 50vw;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    padding: 0 10px 10px 10px;
+    overflow: auto;
+    border-radius: 5px;
+}
+
+.lastCard {
+    margin-bottom: 50px;
+}
+
+.code {
+    margin-top: 10px;
+    color: white;
+}
+
+.input {
+    color: rgba(126, 185, 240, 0.9)
+}
+
+.output {
+    color: rgba(134, 224, 134, 0.9)
+}
+
+.output pre:first-of-type {
+    margin-top: 10px;
+}
+
+.tag {
+    color: rgb(255, 167, 167);
+}
+
+.comment {
+    color: #fff7;
+}
+
+.button-container {
+    position: sticky;
+    left: 0px;
+    bottom: 0px;
+    transform: translate(10px, 10px);
+}
+
+.button {
+    font-weight: bold;
+    position: absolute;
+    background-color: #82d8a6;
+    box-shadow: 0px 0px 5px 0px rgb(40, 40, 40);
+    padding: 5px;
+    bottom: 7.5px;
+    display: flex;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.x-space1 {
+    right: 15px;
+}
+
+.x-space2 {
+    right: 7.55px;
+}
+
+.y-space {
+    bottom: 15px;
+}
+
+.button:hover {
+    background-color: #85e7ae;
+    box-shadow: 0px 0px 5px 0px rgb(30, 30, 30);
+    cursor: pointer;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.iframe {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 150px;
+    height: 55%;
+    width: 45%;
+    background-color: rgba(255, 255, 255);
+    border: none;
+    box-shadow: var(--box-shadow);
+}
+
+@media screen and (max-width: 10000px) {
+    .card {
+        width: 20vw;
+    }
+}
+
+@media screen and (max-width: 5200px) {
+    .card {
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 3600px) {
+    .card {
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 2000px) {
+    .card {
+        width: 50vw;
+    }
+
+    .iframe {
+        height: 55%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .card {
+        width: 60vw;
+    }
+    .iframe {
+        height: 65%;
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .card {
+        width: 70vw;
+    }
+    .iframe {
+        height: 75%;
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .card {
+        width: 80vw;
+    }
+    .iframe {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 90vw;
+        font-size: small;
+    }
+    .iframe {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    
+    body {
+        padding-left: 0;
+    }
+
+    .card {
+        font-size: x-small;
+    }
+}
