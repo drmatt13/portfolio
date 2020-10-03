@@ -2,7 +2,6 @@ const router = require("express").Router();
 const Users = require("../models/Users");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
-const session = require('express-session')
 
 router
     .route("/")
@@ -10,9 +9,9 @@ router
             if (!req.cookies.authToken) {
                 res.render(__dirname + "/../views/bcrypt_jwt_auth/login");
             } else {
-                jwt.verify(req.cookies.authToken, process.env.TOKEN_SECRET, (error, verifiedJwt) => {
+                jwt.verify(req.cookies.authToken.split(" ")[0], process.env.TOKEN_SECRET, (error, verifiedJwt) => {
                     if(error){
-                        res.send(error.message)
+                        res.render(__dirname + "/../views/bcrypt_jwt_auth/login");
                     }else{
                         Users.findOne({ _id: verifiedJwt._id})
                             .then(user => {
@@ -66,12 +65,23 @@ router
 router
     .route("/register")
         .get((req, res) => {
-            // check token
-            res.render(__dirname + "/../views/bcrypt_jwt_auth/register");
+            if (!req.cookies.authToken) {
+                res.render(__dirname + "/../views/bcrypt_jwt_auth/register");
+            } else {
+                jwt.verify(req.cookies.authToken.split(" ")[0], process.env.TOKEN_SECRET, (error, verifiedJwt) => {
+                    if(error){
+                        res.render(__dirname + "/../views/bcrypt_jwt_auth/register");
+                    }else{
+                        Users.findOne({ _id: verifiedJwt._id})
+                            .then(user => {
+                                res.redirect('./');
+                            })
+                            .catch(error => console.log(error));
+                    }
+                });
+            }
         })
         .post((req, res) => {
-            // if valid token redirect home
-
             Users.findOne({ username: req.body.username })
                 .then(user1 => {
                     if (!user1) {
@@ -85,7 +95,9 @@ router
                                                     req.body.password = hash;
                                                     Users.create(req.body)
                                                         .then(data => {
-                                                            res.redirect("/bcrypt_jwt_auth");
+                                                            const token = jwt.sign({_id: data._id}, process.env.TOKEN_SECRET);
+                                                            console.log(token);
+                                                            res.render(__dirname + "/../views/bcrypt_jwt_auth/home", {"user": data, token});
                                                         })
                                                         .catch(error => {
                                                             res.json({
