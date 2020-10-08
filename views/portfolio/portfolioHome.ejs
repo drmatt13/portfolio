@@ -1,14 +1,32 @@
 <head>
     <title>portfolio</title>
+
+    <!-- Header css -->
+    <link rel="stylesheet" href="/css/universalCSS/modalSlider.css">
+    <!-- Content css -->
     <link href="/css/portfolio/portfolioHome.css" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="theme-color" content="#3d3d3d" />
 </head>
 
 <body>
-    <div class="center-div">
-        <% for(var i=0; i<data.length; i++) {%>
-            <a href="portfolio/<%= data[i] %>"><%= data[i] %></a>
-        <% } %>
+
+    <div id="master-container" class="master-container">
+
+        <script>const masterContainer = document.getElementById("master-container");</script>
+
+        <!-- ModalSlider component -->
+        <script src="/scripts/universalComponents/ModalSlider.js"></script>
+
+        <div class="center-div">
+            <% for(var i=0; i<data.length; i++) {%>
+                <a href="portfolio/<%= data[i] %>"><%= data[i] %></a>
+            <% } %>
+        </div>
+
     </div>
+    
 </body>

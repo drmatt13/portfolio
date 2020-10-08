@@ -47,7 +47,7 @@ body {
     min-height: 100vh;
     background-color: #305c50;
     background-image: linear-gradient(28deg, #305c50 0%, #6ab19e 70%, #82d8a6 100%);
-    padding-top: 50px;
+    padding-top: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -167,6 +167,13 @@ body::-webkit-scrollbar {
     background-color: rgba(255, 255, 255);
     border: none;
     box-shadow: var(--box-shadow);
+}
+
+@media screen and (max-height:500px) {
+
+    body {
+        padding-top: 50px;
+    }
 }
 
 @media screen and (max-width: 10000px) {
