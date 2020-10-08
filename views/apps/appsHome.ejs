@@ -1,10 +1,10 @@
 <head>
-    <title>portfolio</title>
+    <title>Apps</title>
 
     <!-- Header css -->
     <link rel="stylesheet" href="/css/universalCSS/modalSlider.css">
     <!-- Content css -->
-    <link href="/css/portfolio/portfolioHome.css" rel="stylesheet" type="text/css">
+    <link href="/css/notes/notesHome.css" rel="stylesheet" type="text/css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
@@ -20,13 +20,24 @@
 
         <!-- ModalSlider component -->
         <script src="/scripts/universalComponents/ModalSlider.js"></script>
+        
+        <div class="route-container">
 
-        <div class="center-div">
-            <% for(var i=0; i<data.length; i++) {%>
-                <a href="portfolio/<%= data[i] %>"><%= data[i] %></a>
-            <% } %>
+            <!-- Content -->
+        <% for(let [i, route] of routes.entries()) {%>
+            <div class="route">
+                <div class="title"><%= route %></div>
+                <div class="notes">
+                    <% for(let app of apps[i]) { %>
+                        <a class="note" href="./<%= route.replace(/ /g, "-").toLowerCase() %>/<%= app.replace(/ /g, "-").toLowerCase() %>"><%= app %></a>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+
         </div>
+        
 
     </div>
-    
+
 </body>

@@ -31,8 +31,8 @@ app.use(cookieParser());
 const notes = require("./routes/notes");
 app.use("/notes", notes);
 
-const portfolio = require("./routes/portfolio");
-app.use("/portfolio", portfolio);
+const apps = require("./routes/apps");
+app.use("/apps", apps);
 
 const bcrypt_jwt_auth = require("./routes/bcrypt_jwt_auth");
 app.use("/bcrypt_jwt_auth", bcrypt_jwt_auth);
