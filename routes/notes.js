@@ -10,7 +10,7 @@ fs.readdirSync(__dirname + "/../public/scripts/notes").forEach((route, i) => {
     fs.readdirSync(__dirname + `/../public/scripts/notes/${route}`).forEach(note => {
         note = note.split('.')[0];
         notes[i].push(note);
-        router.get(`/${route.replace(/ /g, "-")}/${note.replace(/ /g, "-")}`, (req, res) => {
+        router.get(`/${note.replace(/ /g, "-")}`, (req, res) => {
             res.render(__dirname + "/../views/notes/notesPage", {'index': i, routes, note});
         });
     });

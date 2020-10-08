@@ -29,7 +29,7 @@
                 <div class="title"><%= route %></div>
                 <div class="notes">
                     <% for(let note of notes[i]) { %>
-                        <a class="note" href="./notes/<%= route.replace(/ /g, "-").toLowerCase() %>/<%= note.replace(/ /g, "-").toLowerCase() %>"><%= note %></a>
+                        <a class="note" href="./notes/<%= note.replace(/ /g, "-").toLowerCase() %>"><%= note %></a>
                     <% } %>
                 </div>
             </div>

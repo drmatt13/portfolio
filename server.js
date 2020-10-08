@@ -27,12 +27,11 @@ app.use(express.urlencoded({ extended: false }));
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+const apps = require("./routes/apps");
+app.use("/apps", apps);
 
 const notes = require("./routes/notes");
 app.use("/notes", notes);
-
-const apps = require("./routes/apps");
-app.use("/apps", apps);
 
 const bcrypt_jwt_auth = require("./routes/bcrypt_jwt_auth");
 app.use("/bcrypt_jwt_auth", bcrypt_jwt_auth);

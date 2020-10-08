@@ -43,8 +43,8 @@ fs.readdirSync(__dirname + "/../public/apps").forEach((route, i) => {
                         apps.forEach((app, i) => {
                             app.forEach((route, j) => {
                                 console.log(`${files[i][j].route}/${route.replace(/ /g, "-")}`);
-                                router.get(`/${files[i][j].route.replace(/ /g, "-")}/${route.replace(/ /g, "-")}`, (req, res) => {
-                                    res.render(__dirname + "/../views/apps/hello", {
+                                router.get(`/${route.replace(/ /g, "-")}`, (req, res) => {
+                                    res.render(__dirname + "/../views/apps/template", {
                                         'title': route,
                                         'route': files[i][j].route,
                                         'appHtml': files[i][j].html,
@@ -66,6 +66,3 @@ fs.readdirSync(__dirname + "/../public/apps").forEach((route, i) => {
 });
 
 module.exports = router;
-
-        // apps = [[app1, app2, app3], [app4, app5, app6]]
-        // files = [[{}, {}, {}], [{}, {}, {}]]

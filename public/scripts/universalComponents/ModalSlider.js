@@ -8,8 +8,8 @@ masterContainer.innerHTML += `
     </div>
     <ul>
         <li><a href="..\\..\\">Home</a></li>
-        <li><a href="..\\..\\portfolio">Portfolio</a></li>
         <li><a href="..\\..\\notes">Notes</a></li>
+        <li><a href="..\\..\\apps">Apps</a></li>
         <li><a href="..\\..\\shop">Shop</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">LinkedIn</a></li>

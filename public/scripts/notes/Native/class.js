@@ -37,7 +37,7 @@ console.log(testObject.set(20));`}
             {'output': `20`}
         ],
         //render
-        {'render': true}
+        {'render': false}
     ],
 
     // card ----------------------------------------------------- >
@@ -68,7 +68,7 @@ console.log(TestClass.hello());`}
             {'output': `Hello!!`}
         ],
         //render
-        {'render': true}
+        {'render': false}
     ],
 
     // card ----------------------------------------------------- >
