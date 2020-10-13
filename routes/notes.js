@@ -15,11 +15,12 @@ fs.readdirSync(__dirname + "/../public/scripts/notes").forEach((route, i) => {
         });
     });
 });
-
 router
     .route("/")
         .get((req, res) => {
             res.render(__dirname + "/../views/notes/notesHome", {'routes': routes, 'notes': notes});
         });
+
+console.log("/notes loaded".cyan.bold.underline);
 
 module.exports = router;

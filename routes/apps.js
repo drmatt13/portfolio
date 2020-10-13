@@ -28,6 +28,11 @@ const writeData = async (i, j, route, app, file) => {
 }
 let promiseStartCount = 0;
 let promiseEndCount = 0;
+
+// fs.watch(__dirname + "/../public/apps", "utf8", (event, filename) => {
+//     console.log(__dirname + "/../public/apps", filename, event);
+// });
+
 fs.readdirSync(__dirname + "/../public/apps").forEach((route, i) => {
     routes.push(route);
     apps.push([]);
@@ -42,7 +47,6 @@ fs.readdirSync(__dirname + "/../public/apps").forEach((route, i) => {
                     if (promiseStartCount == promiseEndCount) {
                         apps.forEach((app, i) => {
                             app.forEach((route, j) => {
-                                console.log(`${files[i][j].route}/${route.replace(/ /g, "-")}`);
                                 router.get(`/${route.replace(/ /g, "-")}`, (req, res) => {
                                     res.render(__dirname + "/../views/apps/template", {
                                         'title': route,
@@ -59,6 +63,7 @@ fs.readdirSync(__dirname + "/../public/apps").forEach((route, i) => {
                                 .get((req, res) => {
                                     res.render(__dirname + "/../views/apps/appsHome", {routes, apps});
                                 });
+                        console.log("/apps loaded".cyan.bold.underline);
                     }
                 });
         });

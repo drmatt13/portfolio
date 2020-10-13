@@ -55,6 +55,6 @@ app.listen(PORT, () => {
             console.log(endPoint.yellow);
         })()
     } else {
-        console.log('3000'.yellow);
+        console.log(`server listening on port ${PORT}`.yellow);
     }
 });
