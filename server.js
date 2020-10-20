@@ -33,8 +33,8 @@ app.use("/apps", apps);
 const notes = require("./routes/notes");
 app.use("/notes", notes);
 
-const bcrypt_jwt_auth = require("./routes/bcrypt_jwt_auth");
-app.use("/bcrypt_jwt_auth", bcrypt_jwt_auth);
+const social = require("./routes/social");
+app.use("/social", social);
 
 const shop = require("./routes/shop");
 app.use("/shop", shop);

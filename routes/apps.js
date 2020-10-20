@@ -33,31 +33,47 @@ let promiseEndCount = 0;
 //     console.log(__dirname + "/../public/apps", filename, event);
 // });
 
+// [{route: link, name: name}, {route: link, name: name}]
+const appLinks = [];
+let prev = 'apps';
+let next = 'apps';
+
 fs.readdirSync(__dirname + "/../public/apps").forEach((route, i) => {
     routes.push(route);
     apps.push([]);
     files.push([]);
     fs.readdirSync(__dirname + `/../public/apps/${route}`).forEach((app, j) => {
+
         apps[i].push(app);
+        
         files[i].push({});
         fs.readdirSync(__dirname + `/../public/apps/${route}/${app}`).forEach((file, k) => {
             promiseStartCount++;
             writeData(i, j, route, app, file)
                 .then(data => {
                     if (promiseStartCount == promiseEndCount) {
-                        apps.forEach((app, i) => {
-                            app.forEach((route, j) => {
-                                router.get(`/${route.replace(/ /g, "-")}`, (req, res) => {
+                        apps.forEach((folder, i) => {
+                            folder.forEach((app, j) => {
+                                let appRoute = files[i][j].route + "/" + app;
+                                if (['1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(app.charAt(0))) {
+                                    app = app.slice(app.indexOf(" ") + 1);
+                                    apps[i][j] = app;
+                                }
+                                router.get(`/${files[i][j].route.replace(/ /g, "-")}/${app.replace(/ /g, "-")}`, (req, res) => {
                                     res.render(__dirname + "/../views/apps/template", {
-                                        'title': route,
+                                        'title': app,
                                         'route': files[i][j].route,
                                         'appHtml': files[i][j].html,
                                         'appCss': files[i][j].css,
-                                        'appJs': files[i][j].js
+                                        'appJs': files[i][j].js,
+                                        'appRoute': appRoute,
+                                        'appLinks': appLinks
                                     });
                                 });
                             });
                         });
+                        console.log(routes);
+                        console.log(apps);
                         router
                             .route("/")
                                 .get((req, res) => {

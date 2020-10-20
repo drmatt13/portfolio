@@ -28,8 +28,8 @@
             <div class="route">
                 <div class="title"><%= route %></div>
                 <div class="notes">
-                    <% for(let note of notes[i]) { %>
-                        <a class="note" href="./notes/<%= note.replace(/ /g, "-").toLowerCase() %>"><%= note %></a>
+                    <% for(let noteRoute of noteRoutes[i]) { %>
+                        <a class="note" href="./notes/<%= route.replace(/ /g, "-").toLowerCase() %>/<%= noteRoute.replace(/ /g, "-").toLowerCase() %>"><%= noteRoute %></a>
                     <% } %>
                 </div>
             </div>

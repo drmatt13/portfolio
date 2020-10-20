@@ -7,15 +7,15 @@ router
     .route("/")
         .get((req, res) => {
             if (!req.cookies.authToken) {
-                res.render(__dirname + "/../views/bcrypt_jwt_auth/login");
+                res.render(__dirname + "/../views/social/login");
             } else {
                 jwt.verify(req.cookies.authToken.split(" ")[0], process.env.TOKEN_SECRET, (error, verifiedJwt) => {
                     if(error){
-                        res.render(__dirname + "/../views/bcrypt_jwt_auth/login");
+                        res.render(__dirname + "/../views/social/login");
                     }else{
                         Users.findOne({ _id: verifiedJwt._id})
                             .then(user => {
-                                res.render(__dirname + "/../views/bcrypt_jwt_auth/home", {"user": user, token: req.cookies.authToken});
+                                res.render(__dirname + "/../views/social/home", {"user": user, token: req.cookies.authToken});
                             })
                             .catch(error => console.log(error));
                     }
@@ -36,7 +36,7 @@ router
                                         .then(result => {
                                             if (result) {
                                                 const token = jwt.sign({_id: user2._id}, process.env.TOKEN_SECRET);
-                                                res.render(__dirname + "/../views/bcrypt_jwt_auth/home", {"user": user2, token});
+                                                res.render(__dirname + "/../views/social/home", {"user": user2, token});
                                             } else {
                                                 res.send("password incorrect")
                                             }
@@ -51,7 +51,7 @@ router
                             .then(result => {
                                 if (result) {
                                     const token = jwt.sign({_id: user1._id}, process.env.TOKEN_SECRET);
-                                    res.render(__dirname + "/../views/bcrypt_jwt_auth/home", {"user": user1, token});
+                                    res.render(__dirname + "/../views/social/home", {"user": user1, token});
                                 } else {
                                     res.send("password incorrect")
                                 }
@@ -66,11 +66,11 @@ router
     .route("/register")
         .get((req, res) => {
             if (!req.cookies.authToken) {
-                res.render(__dirname + "/../views/bcrypt_jwt_auth/register");
+                res.render(__dirname + "/../views/social/register");
             } else {
                 jwt.verify(req.cookies.authToken.split(" ")[0], process.env.TOKEN_SECRET, (error, verifiedJwt) => {
                     if(error){
-                        res.render(__dirname + "/../views/bcrypt_jwt_auth/register");
+                        res.render(__dirname + "/../views/social/register");
                     }else{
                         Users.findOne({ _id: verifiedJwt._id})
                             .then(user => {
@@ -97,7 +97,7 @@ router
                                                         .then(data => {
                                                             const token = jwt.sign({_id: data._id}, process.env.TOKEN_SECRET);
                                                             console.log(token);
-                                                            res.render(__dirname + "/../views/bcrypt_jwt_auth/home", {"user": data, token});
+                                                            res.render(__dirname + "/../views/social/home", {"user": data, token});
                                                         })
                                                         .catch(error => {
                                                             res.json({

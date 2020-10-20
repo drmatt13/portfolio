@@ -472,15 +472,15 @@ body {
 
   .toggleNav {
     height: calc(50px * .75);
-    top: 5px;
+    top: 6.25px;
   }
 
   .header-div2 {
-    display: flex;
+    /* display: flex;
     align-items: center;
     padding-left: calc(1vw + 50px * .75);
     padding-right: calc(25px);
-    color: #eee;
+    color: #eee; */
   }
 
   .h1 {
@@ -523,11 +523,11 @@ body {
   }
 
   .d1-1 {
-    margin: 5px;
+    /* margin: 5px; */
   }
 
   .d2-1 {
-    margin: 5px;
+    /* margin: 5px; */
   }
 
   .display-main-links-master-container {
