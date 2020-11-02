@@ -84,12 +84,16 @@ console.log(arrayListItems);`}
     [],
     //js
     [
-{'comment': `spread operator [array...]`},
+{'comment': `spread operator [...array]`},
 {'js': `\n`},
 {'js': `let array1 = ['item1', 'item2', 'item3'];
 let array2 = ['item4', 'item5', 'item6'];
+let array3 = [array1, ...array2];`},
+{'js': `\n`},
+{'js': `const f = (a, b, c, d, e, f) => {};
+f(...array3);
 
-console.log([array1, ...array2]);`},
+console.log(array3)`},
     ],
     // output
     [

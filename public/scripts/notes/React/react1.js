@@ -10,7 +10,6 @@ const array = [
         [],
         //js
         [
-            {'js': `\n`},
 {'comment': `functional component`},
 {'js': `import React from 'react';
 
@@ -24,7 +23,6 @@ function FunctionalComponent(props) {
 }
 
 export default FunctionalComponent;`},
-{'js': `\n`}
         ],
         // output
         [],
@@ -40,7 +38,6 @@ export default FunctionalComponent;`},
         [],
         //js
         [
-{'js': `\n`},
 {'comment': `class component`},
 {'js': `import React, { Component } from 'react';
 
@@ -60,8 +57,7 @@ class ClassComponent extends Component {
     }
 }
 
-export default ClassComponent;`},
-{'js': `\n`}
+export default ClassComponent;`}
         ],
         // output
         [],
@@ -77,7 +73,6 @@ export default ClassComponent;`},
         [],
         //js
         [
-{'js': `\n`},
 {'comment': `Component Lifecycle`},
 {'js': `import React, { Component } from 'react';
 
@@ -114,8 +109,7 @@ class ClassComponent extends Component {
     }
 }
 
-export default ClassComponent;`},
-{'js': `\n`}
+export default ClassComponent;`}
         ],
         // output
         [],
