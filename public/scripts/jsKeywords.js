@@ -1,5 +1,6 @@
 const jsLightBlue = [
     'if',
+    'else',
     'for',
     'while',
     'async',

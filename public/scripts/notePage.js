@@ -106,11 +106,11 @@ const jsProcessWord = (s, n, x) => {
                 }
             }
             else if (jsLightBlue.includes(s)) switchSelector = 1;
-            else if (n == '(') switchSelector = 2;
             else if (jsRed.includes(s)) switchSelector = 3;
             else if (jsPurple.includes(s)) switchSelector = 4;
             else if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'true', 'false'].includes(s)) switchSelector = 5;
-            else if (s.charAt(0) == s.charAt(0).toUpperCase() && ![prevString, n].includes('.')) switchSelector = 6;
+            else if (s.charAt(0) == s.charAt(0).toUpperCase() && (![prevString, n].includes('.'))) switchSelector = 6;
+            else if (n == '(') switchSelector = 2;
             switch (switchSelector) {
                 case 0:
                     break;
