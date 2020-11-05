@@ -151,8 +151,8 @@ class SinglyLinkedList {
     }
 
     print() {
-        let array = []
-        let current = this.head
+        let array = [];
+        let current = this.head;
         while (current !== null) {
             array.push(current.val);
             current = current.next;

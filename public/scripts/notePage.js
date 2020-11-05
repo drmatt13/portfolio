@@ -1,3 +1,73 @@
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+class ReverseStack {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+    value() {
+        if (this.first) return this.first.val;
+        else return null;
+        
+    }
+    push(value) {
+        let newNode = new Node(value);
+        if (!this.first) {
+            this.first = newNode;
+            this.last = this.first;
+        } else {
+            let temp = this.first;
+            this.first = newNode;
+            this.first.next = temp;
+        }
+        return ++this.size;
+    }
+    pop() {
+        if (!this.first) return null;
+        let temp = this.first;
+        if (this.first == this.last) {
+            this.last == null;
+        }
+        this.first = this.first.next;
+        this.size--;
+        return temp.val;
+    }
+    update(val) {
+        if (!this.first) this.push(val);
+        else this.first.val = `${val}` + this.first.val;
+        return this;
+    }
+}
+let cache = new ReverseStack();
+const updateCache = (s) => {
+    let char;
+    let newString = true;
+    for (let i=s.length-1; i>=0; i--) {
+        char = s.pop();
+        if (specialChars[char]) {
+            cache.push(char);
+            newString = true;
+        } else {
+            if (newString) {
+                cache.push(char);
+                newString = false;
+            }
+            else {
+                if (!isNaN(char)) {
+                    cache.push(char);
+                    newString = true;
+                } else {
+                    cache.update(char);
+                }
+            }
+        }
+    }
+}
 window.htmlentities = {
     /***@param {String} str **/
     encode : (str) => {
@@ -8,17 +78,115 @@ window.htmlentities = {
         return buf.join('');
     },
 };
+const specialChars = {"\n": true, "-": true, "+": true, "=": true, "'": true,  '"': true, ';': true,'/': true,'?': true,'<': true,'>': true,',': true,'.': true,'[': true,']': true,'{': true,'}': true,'(': true,')': true,'*': true,'&': true,'^': true,'%': true,'$': true,'#': true,'@': true,'!': true,'|': true,'~': true,'`': true, ' ': true,'\\': true};
+let prevString = null;
+let switchSelector = 0;
+let quotationChar = null;
+let isComment = false;
+const jsProcessWord = (s, n, x) => {
+    let span = document.createElement('span');
+    span.innerHTML = htmlentities.encode(s);
+    if (quotationChar != null) {
+        span.classList.add("mysqlQuotations");
+        if (quotationChar == s) quotationChar = null;
+    } else {
+        console.log(s);
+        if (['"', "'", "`"].includes(s)) {
+            quotationChar = s;
+            span.classList.add("mysqlQuotations");
+        } else {
+            if (isComment) {
+                if (n == '\n') isComment = false;
+                switchSelector = 7;
+            }
+            else if (s == '/') {
+                if (n == '/') {
+                    isComment = true;
+                    switchSelector = 7;
+                }
+            }
+            else if (jsLightBlue.includes(s)) switchSelector = 1;
+            else if (n == '(') switchSelector = 2;
+            else if (jsRed.includes(s)) switchSelector = 3;
+            else if (jsPurple.includes(s)) switchSelector = 4;
+            else if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'true', 'false'].includes(s)) switchSelector = 5;
+            else if (s.charAt(0) == s.charAt(0).toUpperCase() && ![prevString, n].includes('.')) switchSelector = 6;
+            switch (switchSelector) {
+                case 0:
+                    break;
+                // light blue
+                case 1:
+                    span.classList.add("light-blue");
+                    if (!['new', 'undefined', '/', '|', '{', '}', '!', '&', ',', '*', '+', '=', '-', '>', '<', '/', ';', ':', '@'].includes(s)) span.classList.add("italic");
+                    break;
+                // dark blue
+                case 2:
+                    span.classList.add("dark-blue");
+                    break;
+                // red
+                case 3:
+                    span.classList.add("mysqlParentheses");
+                    break;
+                // purple
+                case 4:
+                    span.classList.add("purple");
+                    break;
+                // orange - numbers
+                case 5:
+                    span.classList.add("mysqlNumber");
+                    break;
+                // yellow
+                case 6:
+                    span.classList.add("mysqlDatatype");
+                    break;
+                // comment
+                case 7:
+                    span.classList.add("comment");
+                    break;
+                // white
+                default:
+                    break;
+            }
+        }
+    }
+    x.appendChild(span);
+    prevString = s;
+    switchSelector = 0;
+}
+const mysqlProcessWord = (s, x) => {
+    if (mysqlKeywords.includes(s.toUpperCase())) {
+        x.innerHTML += '<span class="mysqlKeyword">' + htmlentities.encode(s) + '</span>';
+    } else if (mysqlDatatypes.includes(s.toUpperCase())) {
+        x.innerHTML += '<span class="mysqlDatatype">' + htmlentities.encode(s) + '</span>';
+    } else {
+        s = Array.from(s);
+        for (let c of s) {
+            if (quotationChar != null) {
+                x.innerHTML += '<span class="mysqlQuotations">' + c + '</span>';
+                if (c == quotationChar) quotationChar = null;
+            } else if (['"', "'", "`"].includes(c)) {
+                x.innerHTML += '<span class="mysqlQuotations">' + c + '</span>';
+                quotationChar = c;
+            } else if (mysqlNumbers.includes(c) && mysqlNumbers.includes(s[0])) x.innerHTML += '<span class="mysqlNumber">' + c + '</span>';
+            else if (c == ')') x.innerHTML += '<span class="mysqlParentheses">' + c + '</span>';
+            else if (c == ';') x.innerHTML += '<span class="mysqlKeyword">' + c + '</span>';
+            else x.innerHTML += htmlentities.encode(c);
+        }
+    }
+}
 let htmlCode = [];
 let cssCode = [];
-let jsCode = [];
+let scriptCode = [];
 let count = 0;
 let commentGap = 0;
 let commentGapString = '';
+let pre;
+let string;
+let code = '';
+let scriptCount = 0;
 for (i in array) {
     count = 0;
-    let pre;
-    let string;
-    let code = '';
+    code = '';
     let card = document.createElement('div');
     card.classList.add('card');
     let html = document.createElement('div');
@@ -97,10 +265,38 @@ for (i in array) {
             for (let k=0; k<commentGap; k++) commentGapString += ' ';
             pre.innerHTML = htmlentities.encode(commentGapString + '// ' + array[i][2][j].comment.trim());
             commentGapString = '';
-            string = '';
+        } else if (array[i][2][j].js) {
+            let jsCode = array[i][2][j].js.split('');
+            updateCache(jsCode);
+            while (cache.first) {
+                jsProcessWord(cache.pop(), cache.value(), pre);
+            }
         } else {
-            string = array[i][2][j].js;
-            pre.innerHTML = htmlentities.encode(string);
+            string = '';
+            for (let line of array[i][2][j].mysql.split('\n')) {
+                scriptCount = line.split(" ").length-1;
+                for (let [k, word] of line.split(/(\s+)/).entries()) {
+                    lastChar = null;
+                    if ([";", ",", ")"].includes(word.slice(-1))) {
+                        lastChar = word.slice(-1);
+                        word = word.substring(0, word.length-1);
+                    }
+                    let temp = word.split('(');
+                    if (temp.length != 1) {
+                        scriptCount = 0;
+                        for (piece of temp) {
+                            mysqlProcessWord(piece, pre);
+                            if (scriptCount != temp.length-1) pre.innerHTML += '<span class="mysqlParentheses">(</span>';
+                            scriptCount++;
+                        }
+                    } else {
+                        if (k == scriptCount) mysqlProcessWord(word, pre);
+                        else mysqlProcessWord(word, pre);
+                    }
+                    if (lastChar != null) mysqlProcessWord(lastChar, pre);
+                }
+                pre.innerHTML += '\n';
+            }
         }
         code += string;
         js.appendChild(pre);
@@ -111,7 +307,7 @@ for (i in array) {
     pre.innerHTML = htmlentities.encode('</script>');
     js.appendChild(pre);
     if (count != 0) card.appendChild(js);
-    jsCode.push(code);
+    scriptCode.push(code);
     code = '';
     count = 0;
     let output = document.createElement('div');
@@ -178,9 +374,9 @@ for (let i=0; i<array.length; i++) {
         count++;
     } else buttonPointer.push(null);
 }
-const ButtonSizeUpdate = () => {for (i in array) modifyButtonYspace(i)};
-window.addEventListener('resize', ButtonSizeUpdate);
-ButtonSizeUpdate();
+const buttonSizeUpdate = () => {for (i in array) modifyButtonYspace(i)};
+window.addEventListener('resize', buttonSizeUpdate);
+buttonSizeUpdate();
 const buildApp = (i) => {
     if (document.querySelector('.app-container') != null) document.querySelector('.app-container').remove();
     let appContainer = document.createElement('div');
@@ -191,7 +387,7 @@ const buildApp = (i) => {
     appContainer.appendChild(background);
     let iframe = document.createElement('iframe');
     iframe.classList.add('iframe');
-    let html = '<body>'+`<style>`+cssCode[i]+`</style>`+htmlCode[i]+`<script>`+jsCode[i]+`</script>`+'</body>';
+    let html = '<body>'+`<style>`+cssCode[i]+`</style>`+htmlCode[i]+`<script>`+scriptCode[i]+`</script>`+'</body>';
     iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(html);
     appContainer.appendChild(iframe);
     document.body.style.overflow = 'hidden';

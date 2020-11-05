@@ -105,6 +105,57 @@ body::-webkit-scrollbar {
     color: #fff7;
 }
 
+.mysqlKeyword {
+    color: rgb(91, 182, 243);
+}
+
+.mysqlDatatype {
+    color: rgb(236, 203, 92);
+}
+
+.mysqlParentheses {
+    color: rgb(223, 102, 102);
+}
+
+.mysqlQuotations {
+    color: rgb(101, 201, 126);
+}
+
+.italic {
+    font-style: italic;
+}
+
+.mysqlNumber {
+    color: rgba(255, 181, 181, 0.9);
+}
+
+.white {
+    color: #fff;
+}
+
+/* light blue */
+.light-blue {
+    color: rgb(131, 202, 250);
+}
+
+/* dark blue */
+.dark-blue {
+    color: rgb(98, 148, 255);
+}
+
+/* red */
+
+
+.purple {
+    color: rgb(190, 144, 212);
+}
+
+
+/* orange numbers */
+
+
+/* yellow */
+
 .button-container {
     position: sticky;
     left: 0px;

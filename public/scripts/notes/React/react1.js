@@ -85,7 +85,7 @@ class ClassComponent extends Component {
     }
 
     componentDidMount() {
-        this.setState({ state: 'state2 });
+        this.setState({ state: 'state2' });
     }
 
     componentDidUpdate() {
