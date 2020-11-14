@@ -81,11 +81,13 @@ body::-webkit-scrollbar {
 
 .pictureComment {
     align-items: center;
+    justify-content: center;
 }
 
 
 .output img {
-    height: 380px;
+    max-height: 300px;
+    max-width: 85vw;
 }
 
 
