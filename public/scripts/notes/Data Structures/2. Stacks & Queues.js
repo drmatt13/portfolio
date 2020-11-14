@@ -1,6 +1,22 @@
 // replace `${i}` --> \`\${i}\`
 
 const array = [
+
+    // card ----------------------------------------------------- >
+    [
+        //html
+        [],
+        //css
+        [],
+        //js
+        [],
+        // output
+[{'comment': `Stack
+last in first out
+(push) <-> (pop) -> (x2) -> (x3)`}],
+        //render
+        {'render': false}
+    ],
     
     // card ----------------------------------------------------- >
     [
@@ -9,11 +25,7 @@ const array = [
         //css
         [],
         //js
-        [
-{'comment': `stack from array`},
-{'comment': `last in first out`},
-{'comment': `(push) <-> (pop) -> (x2) -> (x3)`},
-{'js': `\n`},
+        [{'comment': `stack from array`},
 {'js': `let stack = [];`},
 {'js': `\n`},
 {'comment': `push, pop based`},
@@ -108,11 +120,23 @@ stack.pop();`},
         //css
         [],
         //js
-        [
-{'comment': `queue from array`},
-{'comment': `last in first out`},
-{'comment': `(push) -> (x3) -> (x2) -> (x1) -> (pop)`},
-{'js': `\n`},
+        [],
+        // output
+[{'comment': `Queue
+last in first out
+(push) -> (x3) -> (x2) -> (x1) -> (pop)`}],
+        //render
+        {'render': false}
+    ],
+
+    // card ----------------------------------------------------- >
+    [
+        //html
+        [],
+        //css
+        [],
+        //js
+[{'comment': `queue from array`},
 {'js': `let queue = [];`},
 {'js': `\n`},
 {'comment': `push, shift based`},

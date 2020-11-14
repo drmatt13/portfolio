@@ -169,6 +169,7 @@ console.log(array2);`}
                 [],
                 //js
                 [
+{'comment': `array.includes`},
 {'comment': `array.map`},
 {'comment': `array.filter`}
                 ],

@@ -76,6 +76,19 @@ body::-webkit-scrollbar {
     border-radius: 5px;
 }
 
+
+
+
+.pictureComment {
+    align-items: center;
+}
+
+
+.output img {
+    height: 380px;
+}
+
+
 .lastCard {
     margin-bottom: 50px;
 }
@@ -140,7 +153,7 @@ body::-webkit-scrollbar {
 
 /* dark blue */
 .dark-blue {
-    color: rgb(98, 148, 255);
+    color: rgb(109, 165, 255);
 }
 
 /* red */

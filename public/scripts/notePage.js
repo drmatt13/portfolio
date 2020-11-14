@@ -4,6 +4,7 @@ class Node {
         this.next = null;
     }
 }
+
 class ReverseStack {
     constructor() {
         this.first = null;
@@ -78,20 +79,20 @@ window.htmlentities = {
         return buf.join('');
     },
 };
-const specialChars = {"\n": true, "-": true, "+": true, "=": true, "'": true,  '"': true, ';': true,'/': true,'?': true,'<': true,'>': true,',': true,'.': true,'[': true,']': true,'{': true,'}': true,'(': true,')': true,'*': true,'&': true,'^': true,'%': true,'$': true,'#': true,'@': true,'!': true,'|': true,'~': true,'`': true, ' ': true,'\\': true};
-let prevString = null;
+const specialChars = {"\n": true, "-": true, "+": true, "=": true, "'": true,  '"': true, ';': true,':': true, '/': true,'?': true,'<': true,'>': true,',': true,'.': true,'[': true,']': true,'{': true,'}': true,'(': true,')': true,'*': true,'&': true,'^': true,'%': true,'$': true,'#': true,'@': true,'!': true,'|': true,'~': true,'`': true, ' ': true,'\\': true};
+let prevWord = null;
 let switchSelector = 0;
 let quotationChar = null;
 let isComment = false;
 const jsProcessWord = (s, n, x) => {
+    // if (s == '/') debugger;
     let span = document.createElement('span');
     span.innerHTML = htmlentities.encode(s);
     if (quotationChar != null) {
         span.classList.add("mysqlQuotations");
         if (quotationChar == s) quotationChar = null;
     } else {
-        console.log(s);
-        if (['"', "'", "`"].includes(s)) {
+        if (['"', "'", "`"].includes(s) && !isComment) {
             quotationChar = s;
             span.classList.add("mysqlQuotations");
         } else {
@@ -105,19 +106,33 @@ const jsProcessWord = (s, n, x) => {
                     switchSelector = 7;
                 }
             }
-            else if (jsLightBlue.includes(s)) switchSelector = 1;
+
+            // add react functionality
+            // && const function = () => {} color
+
+            if (jsPurple.includes(s)) switchSelector = 4;
+            else if (n == '(' && prevWord != 'new') switchSelector = 2;
+            else if (jsLightBlue.includes(s)  && !isComment) switchSelector = 1;
             else if (jsRed.includes(s)) switchSelector = 3;
-            else if (jsPurple.includes(s)) switchSelector = 4;
             else if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'true', 'false'].includes(s)) switchSelector = 5;
-            else if (s.charAt(0) == s.charAt(0).toUpperCase() && (![prevString, n].includes('.'))) switchSelector = 6;
-            else if (n == '(') switchSelector = 2;
+            else if (s.charAt(0) == s.charAt(0).toUpperCase() && (prevWord != '.')) {
+                if (['class', 'extends'].includes(prevWord) && ![' ', '\n'].includes(s)) {
+                    jsClassList.push(s);
+                    switchSelector = 6;
+                }
+                else if (jsClassList.includes(s)) switchSelector = 6;
+            }
+            
             switch (switchSelector) {
                 case 0:
                     break;
                 // light blue
                 case 1:
                     span.classList.add("light-blue");
-                    if (!['new', 'undefined', '/', '|', '{', '}', '!', '&', ',', '*', '+', '=', '-', '>', '<', '/', ';', ':', '@'].includes(s)) span.classList.add("italic");
+
+                    // refactor later
+
+                    if (!['new', 'undefined', '\\', '|', '{', '}', '!', '&', ',', '*', '+', '=', '-', '>', '<', '/', ';', ':', '@'].includes(s)) span.classList.add("italic");
                     break;
                 // dark blue
                 case 2:
@@ -150,9 +165,12 @@ const jsProcessWord = (s, n, x) => {
         }
     }
     x.appendChild(span);
-    prevString = s;
+    if (![' ', '\n'].includes(s)) prevWord = s;
     switchSelector = 0;
 }
+
+// refactor later
+
 const mysqlProcessWord = (s, x) => {
     if (mysqlKeywords.includes(s.toUpperCase())) {
         x.innerHTML += '<span class="mysqlKeyword">' + htmlentities.encode(s) + '</span>';
@@ -266,6 +284,12 @@ for (i in array) {
             pre.innerHTML = htmlentities.encode(commentGapString + '// ' + array[i][2][j].comment.trim());
             commentGapString = '';
         } else if (array[i][2][j].js) {
+
+
+            code += array[i][2][j].js;
+
+
+
             let jsCode = array[i][2][j].js.split('');
             updateCache(jsCode);
             while (cache.first) {
@@ -298,7 +322,6 @@ for (i in array) {
                 pre.innerHTML += '\n';
             }
         }
-        code += string;
         js.appendChild(pre);
         count++;
     }
@@ -307,7 +330,13 @@ for (i in array) {
     pre.innerHTML = htmlentities.encode('</script>');
     js.appendChild(pre);
     if (count != 0) card.appendChild(js);
+
+
+
     scriptCode.push(code);
+
+    
+
     code = '';
     count = 0;
     let output = document.createElement('div');
@@ -320,9 +349,18 @@ for (i in array) {
         } else if (array[i][3][j].input) {
             pre.classList.add('input');
             pre.innerHTML = array[i][3][j].input;
-        } else {
+        } else if (array[i][3][j].output) {
             pre.classList.add('output');
             pre.innerHTML = array[i][3][j].output;
+        } else if (array[i][3][j].pictureComment) {
+
+
+
+            card.classList.add("pictureComment");
+            pre.classList.add('output');
+            pre.innerHTML = `<img src="/images/${array[i][3][j].pictureComment}">`;
+
+
         }
         output.appendChild(pre);
         count++;

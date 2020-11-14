@@ -1,68 +1,117 @@
 class Node {
-    constructor(val) {
-        this.val = val;
-        this.next = null;
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
     }
 }
-class Stack {
+
+class BinarySearchTree {
     constructor() {
-        this.first = null;
-        this.last = null;
-        this.size = 0;
+        this.root = null;
     }
-    push(value) {
+
+    insert(value) {
         let newNode = new Node(value);
-        if (!this.first) {
-            this.first = newNode;
-            this.last = this.first;
+        if (this.root == null) {
+            this.root = newNode;
+            return this;
         } else {
-            let temp = this.first;
-            this.first = newNode;
-            this.first.next = temp;
-        }
-        return ++this.size;
-    }
-    pop() {
-        if (!this.first) return null;
-        let temp = this.first;
-        if (this.first == this.last) {
-            this.last == null;
-        }
-        this.first = this.first.next;
-        this.size--;
-        if (this.first) return [temp.val, this.first.val];
-        return [temp.val, null];
-    }
-    update(val) {
-        if (!this.first) this.push(val);
-        else this.first.val = `${val}` + this.first.val;
-        return this;
-    }
-}
-
-const specialChars = {"\n": true, "-": true, "+": true, "=": true, "'": true,';': true,'/': true,'?': true,'<': true,'>': true,',': true,'.': true,'[': true,']': true,'{': true,'}': true,'(': true,')': true,'*': true,'&': true,'^': true,'%': true,'$': true,'#': true,'@': true,'!': true,'|': true,'~': true,'`': true,' ': true,'\\': true};
-
-let cache = new Stack();
-'//kjkj'
-const updateCache = (s) => {
-    let char;
-    let newString = false;
-    for (let i=s.length-1; i>=0; i--) {
-        char = s.pop();
-        if (specialChars[char]) {
-            cache.push(char);
-            newString = true;
-        } else {
-            if (newString) {
-                cache.push(char);
-                newString = false;
+            let current = this.root;
+            while(true) {
+                // if value already exists
+                if (value == current.value) return undefined;
+                // traverse left
+                if (value < current.value) {
+                    // check if left child is null
+                    if (current.left == null) {
+                        current.left = newNode;
+                        return this;
+                    }
+                    current = current.left;
+                // traverse right
+                } else {
+                    // check if right child is null
+                    if (current.right == null) {
+                        current.right = newNode;
+                        return this;
+                    }
+                    current = current.right;
+                }
             }
-            else cache.update(char);
         }
     }
+
+    find(value) {
+        if (this.root == null) return false;
+        let current = this.root,
+            found = false;
+        while (current && !found) {
+            if (value < current.value) {
+                current = current.left;
+            } else if (value > current.value){
+                current = current.right;
+            } else {
+                found = true;
+            }
+        }
+        if (!found) return undefined;
+        return current;
+    }
+    // -> -> () ->
+    // ->  ()->() ->
+    // -> ()()()() ->
+    BFS() {
+        let node = this.root,
+            data = [],
+            queue = [];
+        queue.push(node);
+        while (queue.length) {
+            node = queue.shift();
+            data.push(node)
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+        return data;
+    }
+
+    DFSPreOrder() {
+        debugger;
+        let data = [];
+        function traverse(node) {
+            data.push(node);
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return data;
+    }
+
+    DFSPostOrder() {
+        let data = [];
+        function traverse(node) {
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right);
+            data.push(node);
+        }
+        traverse(this.root);
+        return data;
+    }
+
 }
 
-// 'test555, 555test'
 
 
-updateCache(Array.from("1234$5.ij    iji;;;ijij()kj"));
+let tree = new BinarySearchTree();
+tree.insert(34);
+tree.insert(4);
+tree.insert(24);
+tree.insert(15);
+tree.insert(37);
+tree.insert(50);
+tree.insert(0);
+tree.insert(4);
+tree.insert(17);
+
+
+console.log(tree.DFSPreOrder());

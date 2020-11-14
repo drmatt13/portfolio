@@ -37,16 +37,16 @@ color: #xxxxxx;
         ],
         //js
         [
-            {'comment': `generate x divs with unique classes`},
-            {'js': `let x = 100
+{'js': `// generate x divs with unique classes
+let x = 100
 for (let i=0; i<x; i++) {
     let div = document.createElement('div');
     div.classList.add(\`style\${i}\`);
     div.innerHTML = 'highlight me';
     document.body.appendChild(div);
-}`},
-{'comment': `generate x unique style tags`},
-{'js': `let style = document.createElement('style');
+}
+// generate x unique style tags
+let style = document.createElement('style');
 for (let i=0; i<x; i++) {
     let c1 = Math.floor(Math.random() * (255 - 0)) + 0;
     let c2 = Math.floor(Math.random() * (255 - 0)) + 0;

@@ -2,19 +2,21 @@
 
 const array = [
 
-        // card ----------------------------------------------------- >
-        [
-            //html
-            [],
-            //css
-            [],
-            //js
-            [],
-            // output
-            [],
-            //render
-            {'render': false}
-        ],
+    // card ----------------------------------------------------- >
+    [
+        //html
+        [],
+        //css
+        [],
+        //js
+        [],
+        // output
+[{'comment': `Singly Linked Lists
+head     ->       tail
+x1 -> x2 -> x3 -> x4 -> null`}],
+        //render
+        {'render': false}
+    ],
     
     // card ----------------------------------------------------- >
     [
@@ -23,12 +25,7 @@ const array = [
         //css
         [],
         //js
-        [
-{'comment': `Singly Linked Lists`},
-{'comment': `head     ->       tail`},
-{'comment': `x1 -> x2 -> x3 -> x4 -> null`},
-{'js': `\n`},
-{'js': `class Node {
+        [{'js': `class Node {
     constructor(val) {
         this.val = val;
         this.next = null;
@@ -267,11 +264,23 @@ list.unshift(x6);`},
         //css
         [],
         //js
-        [
-{'comment': `Doubly Linked Lists`},
-{'comment': `         head                 tail`},
-{'comment': `null <-> x1 <-> x2 <-> x3 <-> x4 <-> null`},
-{'js': `\nclass Node {
+        [],
+        // output
+[{'comment': `Doubly Linked Lists
+        head                 tail
+null <-> x1 <-> x2 <-> x3 <-> x4 <-> null`}],
+        //render
+        {'render': false}
+    ],
+
+    // card ----------------------------------------------------- >
+    [
+        //html
+        [],
+        //css
+        [],
+        //js
+[{'js': `class Node {
     constructor(val) {
         this.val = val;
         this.next = null;

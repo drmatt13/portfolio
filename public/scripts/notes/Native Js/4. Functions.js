@@ -10,7 +10,11 @@ const array = [
         [],
         //js
         [
-{'js': `class Node {
+{'js': `/
+
+
+/
+/class Node {
     constructor(val) {
         this.val = val;
         this.next = null;

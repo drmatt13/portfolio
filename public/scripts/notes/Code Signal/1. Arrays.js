@@ -10,7 +10,6 @@ const array = [
     [],
     //js
     [
-{'js': `\n`},
 {'comment': `first duplicate in an array`},
 {'js': `const firstDuplicate = (a) => {
     let arr = {};
@@ -29,8 +28,7 @@ console.log(
     firstDuplicate(
         [2, 1, 3, 5, 3, 2]
     )
-);`},
-{'js': `\n`}
+);`}
     ],
     // output
     [
@@ -48,7 +46,6 @@ console.log(
     [],
     //js
     [
-{'js': `\n`},
 {'comment': `first not repeating character in a String`},
 {'js': `const firstNotRepeatingCharacter = (s) => {
     let obj = new Object();
@@ -71,8 +68,7 @@ console.log(
     firstNotRepeatingCharacter(
         "abacabad"
     )
-);`},
-{'js': `\n`}
+);`}
     ],
     // output
     [
@@ -90,7 +86,6 @@ console.log(
     [],
     //js
     [
-{'js': `\n`},
 {'comment': `rotate X*X 2D Array`},
 {'js': `const rotateImage = (a) => {
 
@@ -113,8 +108,7 @@ console.log(
         [4, 5, 6],
         [7, 8, 9]]
     )
-);`},
-{'js': `\n`}
+);`}
     ],
     // output
     [
@@ -134,7 +128,6 @@ console.log(
     [],
     //js
     [
-{'js': `\n`},
 {'comment': `Check if 9x9 array [[x1, x2, ..., x9], [], ..., []]`},
 {'comment': `sudoku is valid, return true or false`},
 {'js': `\n`},
@@ -212,8 +205,7 @@ console.log(
             ['.', '.', '.',   '.', '.', '.',   '.', '.', '.']
         ]
     )
-);`},
-{'js': `\n`}
+);`}
     ],
     // output
     [

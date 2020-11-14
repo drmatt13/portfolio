@@ -8,23 +8,23 @@ const array = [
         [],
         //js
         [
-{'comment': `post -> '/register'`},
-{'comment': `if !user`},
-{'comment': `create user & encrypt password`},
-{'js': `const bcrypt = require("bcrypt");`},
-{'comment': `create salt`},
-{'js': `bcrypt.genSalt(10, (error, salt) => {`},
-{'comment': `   hash the password with the salt,`},
-{'comment': `   the salt also becomes the leading variable`},
-{'comment': `   --> <salt><hashstring>`},
-{'js': `    bcrypt.hash(password, salt, (error, hash) => {`},
-{'comment': `       update password w/ hashed password`},
-{'js': `        req.body.password = hash;`},
-{'comment': `       create user {`},
-{'comment': `       }`},
-{'js': `        const token = jwt.sign({payload: user_id}, 'secret');`},
-{'comment': `       render('/route', {token});`},
-{'js': `    });
+{'js': `// post -> '/register'
+// if !user
+// create user & encrypt password
+const bcrypt = require("bcrypt");
+// create salt
+bcrypt.genSalt(10, (error, salt) => {
+    // hash the password with the salt,
+    // the salt also becomes the leading variable
+    // --> <salt><hashstring>
+    bcrypt.hash(password, salt, (error, hash) => {
+       // update password w/ hashed password
+        req.body.password = hash;
+       // create user {
+       // }
+        const token = jwt.sign({payload: user_id}, 'secret');
+       // render('/route', {token});
+    });
 });`},
         ],
         // output
@@ -41,18 +41,18 @@ const array = [
         [],
         //js
         [
-{'comment': `post -> '/login'`},
-{'comment': `get user {}`},
-{'comment': `compare client password with encrypted password`},
-{'js': `bcrypt.compare(req.password, user.password, (error, same) => {
-if (same) {`},
-{'comment': `    create a jsonwebtoken containing the user_id & expiration`},
-{'comment': `    the payload is hashed w/ the secret variable`},
-{'js': `    const token = jwt.sign({payload: user_id}, secret);`},
-{'comment': `    render home, {token}`},
-{'js': `    } else {`},
-{'comment': `    password incorrect`},
-{'js': `    }
+{'js': `// post -> '/login'
+// get user {}
+// compare client password with encrypted password
+bcrypt.compare(req.password, user.password, (error, same) => {
+if (same) {
+    // create a jsonwebtoken containing the user_id & expiration
+    // the payload is hashed w/ the secret variable
+    const token = jwt.sign({payload: user_id}, secret);
+    // render home, {token}
+    } else {
+    // password incorrect
+    }
 });`},
         ],
         // output
@@ -69,15 +69,15 @@ if (same) {`},
         [],
         //js
         [
-{'comment': `get -> '/'`},
-{'comment': `if !token render login page,`},
-{'comment': `if token render home page,`},
-{'js': `jwt.verify(req.cookies.token, secret, (error, verifiedJwt) => {
-    if(!error){`},
-{'comment': `        verifiedJwt`},
-{'js': `    }else{`},
-{'comment': `        error`},
-{'js': `    }
+{'js': `// get -> '/'
+// if !token render login page,
+// if token render home page,
+jwt.verify(req.cookies.token, secret, (error, verifiedJwt) => {
+    if(!error){
+        // verifiedJwt
+    } else {
+        // error
+    }
 });`}
         ],
         // output
