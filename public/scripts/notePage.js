@@ -99,18 +99,21 @@ const jsProcessWord = (s, n, x) => {
             if (isComment) {
                 if (n == '\n') isComment = false;
                 switchSelector = 7;
+                debugger;
             }
             else if (s == '/') {
                 if (n == '/') {
                     isComment = true;
                     switchSelector = 7;
+                } else {
+                    switchSelector = 1;
                 }
             }
 
             // add react functionality
             // && const function = () => {} color
 
-            if (jsPurple.includes(s)) switchSelector = 4;
+            else if (jsPurple.includes(s)) switchSelector = 4;
             else if (n == '(' && prevWord != 'new') switchSelector = 2;
             else if (jsLightBlue.includes(s)  && !isComment) switchSelector = 1;
             else if (jsRed.includes(s)) switchSelector = 3;
@@ -361,6 +364,24 @@ for (i in array) {
             pre.innerHTML = `<img src="/images/${array[i][3][j].pictureComment}">`;
 
 
+        } else if (array[i][3][j].pictureCommentSm) {
+
+
+
+            card.classList.add("pictureComment");
+            pre.classList.add('output-sm');
+            pre.innerHTML = `<img src="/images/${array[i][3][j].pictureCommentSm}">`;
+
+
+        } else if (array[i][3][j].pictureCommentLg) {
+
+
+
+            card.classList.add("pictureComment");
+            pre.classList.add('output-lg');
+            pre.innerHTML = `<img src="/images/${array[i][3][j].pictureCommentLg}">`;
+
+
         }
         output.appendChild(pre);
         count++;
@@ -426,7 +447,7 @@ const buildApp = (i) => {
     let iframe = document.createElement('iframe');
     iframe.classList.add('iframe');
     let html = '<body>'+`<style>`+cssCode[i]+`</style>`+htmlCode[i]+`<script>`+scriptCode[i]+`</script>`+'</body>';
-    iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(html);
+    iframe.srcdoc = html;
     appContainer.appendChild(iframe);
     document.body.style.overflow = 'hidden';
     document.body.appendChild(appContainer);

@@ -27,6 +27,10 @@ app.use(express.urlencoded({ extended: false }));
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+// favicon
+const favicon = require('serve-favicon');
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
 const apps = require("./routes/apps");
 app.use("/apps", apps);
 

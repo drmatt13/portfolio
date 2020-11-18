@@ -38,7 +38,7 @@ color: #xxxxxx;
         //js
         [
 {'js': `// generate x divs with unique classes
-let x = 100
+let x = 100;
 for (let i=0; i<x; i++) {
     let div = document.createElement('div');
     div.classList.add(\`style\${i}\`);

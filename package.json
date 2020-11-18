@@ -23,6 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.5",
     "ngrok": "^3.2.7",
+    "serve-favicon": "^2.5.0",
     "slugify": "^1.4.5"
   }
 }

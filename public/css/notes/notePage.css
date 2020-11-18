@@ -79,16 +79,35 @@ body::-webkit-scrollbar {
 
 
 
+
+
+
+
 .pictureComment {
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
+
+.output-sm img {
+    max-height: 300px;
+    max-width: 25vw !important;
+}
 
 .output img {
     max-height: 300px;
-    max-width: 85vw;
+    max-width: 80vw;
 }
+
+.output-lg img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+
+
+
 
 
 .lastCard {
