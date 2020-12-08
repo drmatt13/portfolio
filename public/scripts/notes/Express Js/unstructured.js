@@ -42,36 +42,36 @@ const { function1, function2: rename } = require('./route');`}
 // @route   GET /route/route
 // @access  Public
 exports.controller1 = (req, res, next) => {
-    promise()
-    .then(data => {
+  promise()
+  .then(data => {
 
-    })
-    .catch(error => {
+  })
+  .catch(error => {
 
-    })
+  })
 };
 
 // @desc    Description
 // @route   POST /route/route
 // @access  Public
 exports.controller2 = async (req, res, next) => {
-    try {
-        await promise();
-    } catch (error) {
+  try {
+    await promise();
+  } catch (error) {
 
-    }
+  }
 };
 
 // within routes
 const {
-    controller1,
-    controller2
+  controller1,
+  controller2
 } = require('./route/controller');
 
 router
-    .route('/route')
-    .get(controller1)
-    .post(controller2);`},
+  .route('/route')
+  .get(controller1)
+  .post(controller2);`},
             ],
             // output
             [],
@@ -90,13 +90,13 @@ router
 {'js': `// error handling middleware
 const errorHandler = (err, req, res, next) => {
 
-    // Log to console for dev
-    console.log(err.stack);
+  // Log to console for dev
+  console.log(err.stack);
 
-    res.status(500).json({
-        success: false,
-        error: err.message
-    })
+  res.status(500).json({
+    success: false,
+    error: err.message
+  })
 };
 
 module.exports = errorHandler;
@@ -106,11 +106,11 @@ try {
     
 } catch (error) {
 
-    // res.status(400).json({
-    //     success: false
-    // });
+  // res.status(400).json({
+  //     success: false
+  // });
 
-    next(error);
+  next(error);
 }
 
 // apply the error handler last within the server
@@ -137,10 +137,10 @@ app.use(errorHandler);`},
 const NodeGeocoder = require('node-geocoder');
 
 const options = {
-    provider: process.env.GEOCODER_PROVIDER,
-    httpAdapter: 'https',
-    apiKey: process.env.GEOCODER_API_KEY,
-    formatter: null
+  provider: process.env.GEOCODER_PROVIDER,
+  httpAdapter: 'https',
+  apiKey: process.env.GEOCODER_API_KEY,
+  formatter: null
 }
 
 const geocoder = NodeGeocoder(options);
@@ -150,39 +150,39 @@ module.exports = geocoder;
 // within a controller
 exports.controller = async (req, res) => {
 
-    const { zipcode, distance } = req.params;
+  const { zipcode, distance } = req.params;
 
-    const location = await geocoder.geocode(zipcode);
-    const latitude = loc[0].latitude;
-    const longitude = loc[0].longitude;
+  const location = await geocoder.geocode(zipcode);
+  const latitude = loc[0].latitude;
+  const longitude = loc[0].longitude;
 
-    console.log(location);
+  console.log(location);
 };
 
 // within routes
 const controller = require('./route/controller');
 
 router
-    .route('/route/:zipcode/:distance')
-    .get(controller)`}
+  .route('/route/:zipcode/:distance')
+  .get(controller)`}
             ],
             // output
             [
 {'input': `fetch('/route/02199/100')`},
 {'output': `[
-    {
-        formattedAddress: ', Boston, MA 02199, US',
-        latitude: 42.347417,
-        longitude: -71.082126,
-        country: null,
-        city: 'Boston',
-        stateCode: 'MA',
-        zipcode: '02199',
-        streetName: '',
-        streetNumber: null,
-        countryCode: 'US',
-        provider: 'mapquest'
-    }
+  {
+    formattedAddress: ', Boston, MA 02199, US',
+    latitude: 42.347417,
+    longitude: -71.082126,
+    country: null,
+    city: 'Boston',
+    stateCode: 'MA',
+    zipcode: '02199',
+    streetName: '',
+    streetNumber: null,
+    countryCode: 'US',
+    provider: 'mapquest'
+  }
 ]`}
             ],
             //render
@@ -219,15 +219,15 @@ fs.mkdirSync('new folder');
 
 // load data
 fs.readFile('./test.txt', function (err, data) {
-    if (err) {
-        throw err; 
-    }
-    console.log(Buffer.from(data).toString());
+  if (err) {
+    throw err; 
+  }
+  console.log(Buffer.from(data).toString());
 });
 
 // listen for changes to file
 fs.watchFile('new folder/data.txt', () => {
-    console.log('data file was changed');
+  console.log('data file was changed');
 });`},
         ],
         // output
@@ -251,16 +251,16 @@ fs.watchFile('new folder/data.txt', () => {
 const ngrok = require('ngrok');
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 app.listen(PORT, () => {
-    (async function() {
-        const endPoint = await ngrok.connect(PORT);
-        console.log(endPoint);
-    })()
+  (async function() {
+    const endPoint = await ngrok.connect(PORT);
+    console.log(endPoint);
+  })()
 });`},
         ],
         // output

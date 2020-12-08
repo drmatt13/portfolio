@@ -47,6 +47,12 @@ app.get("/", (req, res) => {
     res.render(__dirname + "/views/home");
 });
 
+// test -------
+app.post("/", (req, res) => {
+    console.log(req);
+    res.send(req.body);
+});
+// test -------
 
 
 const PORT = process.env.PORT || 3000;

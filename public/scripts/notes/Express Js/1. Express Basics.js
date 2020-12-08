@@ -17,7 +17,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(\`server running on port \${PORT}\`);
+  console.log(\`server running on port \${PORT}\`);
 });`},
         ],
         // output
@@ -37,6 +37,8 @@ app.listen(PORT, () => {
 {'js': `// Global settings
 
 // Load env vars
+
+// require('dotenv').config();
 dotenv.config({ path: './config/config.env' });
 
 // Body-Parser middleware
@@ -84,48 +86,48 @@ const router = express.Router();
 
 // GET method route
 router
-    .route('/')
-        .get((req, res) => {
-            // send object as string
-            res.status(200).json(Object);
-        });
+  .route('/')
+  .get((req, res) => {
+    // send object as string
+    res.status(200).json(Object);
+  });
 
 // Route parameters, the hyphen (-) and the dot (.) are interpreted literally
 router.get('/users/:userId.name/books/:school-bookId', (req, res) => {
-    // Request URL: http://localhost:3000/users.usersName/34/books/schoolName-8989
-    // req.params: { 
-    //    "userId": "34",
-    //    "name": "usersName",
-    //    "school": "schoolName",
-    //    "bookId": "8989"
-    // }
-    res.status(200).json(req.params);
+  // Request URL: http://localhost:3000/users.usersName/34/books/schoolName-8989
+  // req.params: { 
+  //   "userId": "34",
+  //   "name": "usersName",
+  //   "school": "schoolName",
+  //   "bookId": "8989"
+  // }
+  res.status(200).json(req.params);
 });
 
 // Route query, /route?key=value&key=value&...
 router.get('/users', (req, res) => {
-    // Request URL: http://localhost:3000/users?name=foo&age=bar
-    // req.query: { "name": "foo", "age": "bar" }
-    const { name, age } = req.query;
-    res.render(__dirname + "/../views/file", name, age);
+  // Request URL: http://localhost:3000/users?name=foo&age=bar
+  // req.query: { "name": "foo", "age": "bar" }
+  const { name, age } = req.query;
+  res.render(__dirname + "/../views/file", name, age);
 });
 
 // POST method route
 // Content-Type -> application/json for sending object data
 router.post('/', (req, res) => {
-    // req.body: { "jsonString": "Object", "userId": "1" }
-    const Object = JSON.parse(req.body.jsonString);
-    res.render(__dirname + "/../views/file", Object, req.body.userId);
+  // req.body: { "jsonString": "Object", "userId": "1" }
+  const Object = JSON.parse(req.body.jsonString);
+  res.render(__dirname + "/../views/file", Object, req.body.userId);
 })
 
 // PUT method route
 router.put('/', (req, res) => {
-    res.send('<h1>PUT request to the homepage</h1>')
+  res.send('<h1>PUT request to the homepage</h1>')
 })
 
 // DELETE method route
 router.delete('/', (req, res) => {
-    res.send('<h1>DELETE request to the homepage</h1>')
+  res.send('<h1>DELETE request to the homepage</h1>')
 })
 
 module.exports = router;`},
@@ -147,20 +149,27 @@ module.exports = router;`},
 {'js': `// Express controller
 
 // Within Controller
-exports.controller1 = (req, res) => {
-    res.send("<h1>HTTP GET method</h1>");
+
+// @desc      description
+// @route     GET /route/:id
+// @access    Public
+exports.controller1 = (req, res, next) => {
+  res.send("<h1>HTTP GET method</h1>");
 }
 
-exports.controller2 = (req, res) => {
-    res.send("<h1>HTTP POST method</h1>");
+// @desc      description
+// @route     Post /route/route
+// @access    Public
+exports.controller2 = (req, res, next) => {
+  res.send("<h1>HTTP POST method</h1>");
 };
 
 // Within router
-const exampleController = require('../controllers/exampleController');
+const { controller1, controller2 } = require('../controllers/exampleController');
 router
-    .route('/')
-        .get(exampleController.controller1)
-        .post(middleware, ... , exampleController.controller2);`}
+  .route('/')
+    .get(controller1)
+    .post(middleware, ... , controller2);`}
         ],
         // output
         [],
@@ -180,13 +189,13 @@ router
 
 // Create middleware function
 const timeStamp => (req, res, next) {
-    console.log('Time:', Date.now());
-    next();
+  console.log('Time:', Date.now());
+  next();
 }
 
 // Route specific middleware
-app.get('/', timestamp, ... , (req, res) => {
-    res.send('GET request to the homepage');
+app.get('/', timestamp, ..., (req, res) => {
+  res.send('GET request to the homepage');
 });
 
 // Gobal middleware
@@ -194,16 +203,16 @@ app.use(timeStamp);
 
 // timeStamp() -> app.get()
 app.get('/', (req, res) => {
-    res.send('GET request to the homepage');
+  res.send('GET request to the homepage');
 });
 
 // Auth middleware
 auth => (req, res, next) {
-    if (req.query.id == '9sdf89sdfh') {
-        next();
-    } else {
-        app.send('No auth');
-    }
+  if (req.query.id == '9sdf89sdfh') {
+    next();
+  } else {
+    app.send('No auth');
+  }
 }
 
 // Express router middleware
@@ -211,11 +220,12 @@ router.use(auth);
 
 // Error-handling middleware
 app.use((err, req, res, next) => {
-    if (err) {
-        console.error(err.stack);
-        res.status(500).send('Something broke!');
-    }
-});`},
+  if (err) {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+  }
+});
+`},
         ],
         // output
         [],
@@ -231,13 +241,113 @@ app.use((err, req, res, next) => {
         [],
         //js
         [
-{'js': `// error handling`},
+{'js': `// Error Handling
+
+// Create Middleware
+const errorHandler = (err, req, res, next) => {
+
+  // Log to console for dev
+  console.log(err.stack.red);
+
+  res
+    .status(err.statusCode || 500)
+    .json({
+    success: false,
+    error: err.message || 'Server Error',
+  });
+}
+module.exports = errorHandler;
+
+
+
+// Within index.js
+// After mounting routers, attach middleware
+const route = require('./routes/route');
+app.use('/route/route', route);
+
+// Error handler middleware
+const errorHandler = require('./middleware/error');
+app.use(errorHandler);
+
+
+
+// Within Controller
+exports.getBootcamp = async (req, res, next) => {
+  try {
+    const promise = await Promise();
+    res
+      .status(200)
+      .json({ success: true });
+  } catch (err) {
+    next(err);
+  }
+}`},
         ],
         // output
         [],
         //render
         {'render': false}
     ],
+
+    // card ----------------------------------------------------- >
+    [
+      //html
+      [],
+      //css
+      [],
+      //js
+      [
+{'js': `// User-supplied Data
+req.params
+req.query
+req.body
+
+req = {
+_startTime     :    Date, 
+app            :    function(req,res){},
+body           :    {},
+client         :    Socket,
+complete       :    Boolean,
+connection     :    Socket,
+cookies        :    {},
+files          :    {},
+headers        :    {},
+httpVersion    :    String,
+httpVersionMajor :  Number,
+httpVersionMinor :  Number,
+method         :    String,  // e.g. GET POST PUT DELETE
+next           :    function next(err){},
+originalUrl    :    String,
+params         :    [],
+query          :    {},
+readable       :    Boolean,
+res            :    ServerResponse,
+route          :    Route,
+signedCookies  :    {},
+socket         :    Socket,
+url            :    String
+}
+
+res = {
+app            :    function(req, res) {},
+chunkedEncoding:    Boolean,
+connection     :    Socket,
+finished       :    Boolean,
+output         :    [],
+outputEncodings:    [],
+req            :    IncomingMessage,
+sendDate       :    Boolean,
+shouldkeepAlive:    Boolean,
+socket         :    Socket,
+viewCallbacks  :    [],
+writable       :     Boolean
+}`},
+      ],
+      // output
+      [],
+      //render
+      {'render': false}
+  ],
 
         // card ----------------------------------------------------- >
         [

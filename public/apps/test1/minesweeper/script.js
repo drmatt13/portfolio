@@ -162,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //click on square actions
     function click(square) {
         // check if game is finished, square was clicked or has a flag
+        debugger;
         if (isGameOver) return;
         if (square.classList.contains('checked') || square.classList.contains('flag')) return;
         // first check if it is a bomb

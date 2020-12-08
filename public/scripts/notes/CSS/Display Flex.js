@@ -19,24 +19,24 @@ const array = [
             //css
             [
 {'css': `* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1px;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
 }
 
 div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(140, 170, 200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(140, 170, 200);
 }`}
             ],
             //js
@@ -63,37 +63,37 @@ div {
                 //css
                 [
 {'css': `* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-    height: 80%;
-    width: 80%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 5px;
-    padding: 5px;
-    border: 1px solid black;
-    background-color: white;
+  height: 80%;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: white;
 }
 
 div {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(140, 170, 200);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(140, 170, 200);
 }`}
                 ],
                 //js

@@ -6,6 +6,7 @@ const jsLightBlue = [
     'in',
     'while',
     'async',
+    'await',
     'this',
     'return',
     'export',
@@ -58,7 +59,8 @@ const jsPurple = [
     'function',
     'constructor',
     'class',
-    'extends'
+    'extends',
+    'static'
 ];
 
 const jsYellow = [

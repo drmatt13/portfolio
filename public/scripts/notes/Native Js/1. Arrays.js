@@ -10,8 +10,8 @@ let array = [
         [],
         //js
         [
-{'comment': `create array`},
-{'js': `let array1 = [5];
+{'js': `// create array
+let array1 = [5];
 let array2 = new Array(5);
 
 console.log(array1);
@@ -34,8 +34,8 @@ console.log(array2);`}
     [],
     //js
     [
-        {'comment': `convert string or iterable item into an array`},
-{'js': `let string = 'string';
+{'js': `// convert string or iterable item into an array
+let string = 'string';
 let arrayListItems = Array.from(string);
 
 console.log(arrayListItems);`}
@@ -56,19 +56,19 @@ console.log(arrayListItems);`}
     [],
     //js
     [
-        {'comment': `pop(), push(i), shift(), unshift(i)`},
-        {'js': `\n`},
-        {'comment': `remove last item from array`},
-        {'comment': `array.pop()`},
-        {'js': `\n`},
-        {'comment': `add new index and push item to array`},
-        {'comment': `array.push(item)`},
-        {'js': `\n`},
-        {'comment': `remove first item from array`},
-        {'comment': `array.shift()`},
-        {'js': `\n`},
-        {'comment': `shift array right and push item to index 0`},
-        {'comment': `array.unshift(item)`}
+{'js': `// pop(), push(i), shift(), unshift(i)
+
+// remove last item from array
+// array.pop()
+
+// add new index and push item to array
+// array.push(item)
+
+// remove first item from array
+// array.shift()
+
+// shift array right and push item to index 0
+// array.unshift(item)`}
     ],
     // output
     [],
@@ -84,13 +84,13 @@ console.log(arrayListItems);`}
     [],
     //js
     [
-{'comment': `spread operator [...array]`},
-{'js': `\n`},
-{'js': `let array1 = ['item1', 'item2', 'item3'];
+{'js': `// spread operator [...array]
+  
+let array1 = ['item1', 'item2', 'item3'];
 let array2 = ['item4', 'item5', 'item6'];
-let array3 = [array1, ...array2];`},
-{'js': `\n`},
-{'js': `const f = (a, b, c, d, e, f) => {};
+let array3 = [array1, ...array2];
+
+const f = (a, b, c, d, e, f) => {};
 f(...array3);
 
 console.log(array3)`},
@@ -111,10 +111,10 @@ console.log(array3)`},
         [],
         //js
         [
-{'comment': `array.splice(startIndex, deleteCount, item1, item2, ...)`},
-{'comment': `deleteCount, shifts items at "index, index + 1, ..."`},
-{'js': `\n`},
-{'js': `let array1 = [0, 1, 2, 3, 4];
+{'js': `// array.splice(startIndex, deleteCount, item1, item2, ...)
+// deleteCount, shifts items at "index, index + 1, ..."
+  
+let array1 = [0, 1, 2, 3, 4];
 let array2 = [5, 6, 7, 8, 9];
 
 array2 = array1.splice(2, 2, ...array2);
@@ -139,19 +139,19 @@ console.log(array2);`}
                 [],
                 //js
                 [
-{'comment': `parsing array`},
-{'js': `\n`},
-{'js': `let array = [1, 2, 4, 8, 16, 32, 64];`},
-{'js': `\n`},
-{'comment': `iterate through array items`},
-{'comment': `i = 1, 2, 4, 8, 16, 32, 64`},
-{'js': `for (let i of array) {
+{'js': `// parsing array
 
-}`},
-{'js': `\n`},
-{'comment': `iterate through array indexes`},
-{'comment': `i = 0, 1, 2, 3, 4, 5, 6`},
-{'js': `for (let i in array) {
+let array = [1, 2, 4, 8, 16, 32, 64];
+
+// iterate through array items
+// i = 1, 2, 4, 8, 16, 32, 64
+for (let i of array) {
+
+}
+
+// iterate through array indexes
+// i = 0, 1, 2, 3, 4, 5, 6
+for (let i in array) {
 
 }`}
                 ],
@@ -169,9 +169,9 @@ console.log(array2);`}
                 [],
                 //js
                 [
-{'comment': `array.includes`},
-{'comment': `array.map`},
-{'comment': `array.filter`}
+{'js': `// array.includes
+// array.map
+// array.filter`}
                 ],
                 // output
                 [],

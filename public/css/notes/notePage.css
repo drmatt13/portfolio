@@ -131,8 +131,9 @@ body::-webkit-scrollbar {
     margin-top: 10px;
 }
 
-.tag {
-    color: rgb(255, 167, 167);
+.red {
+    /* color: rgb(255, 167, 167); */
+    color: rgb(245, 111, 111);
 }
 
 .comment {
@@ -143,15 +144,11 @@ body::-webkit-scrollbar {
     color: rgb(91, 182, 243);
 }
 
-.mysqlDatatype {
+.yellow {
     color: rgb(236, 203, 92);
 }
 
-.mysqlParentheses {
-    color: rgb(223, 102, 102);
-}
-
-.mysqlQuotations {
+.green {
     color: rgb(101, 201, 126);
 }
 
@@ -159,7 +156,7 @@ body::-webkit-scrollbar {
     font-style: italic;
 }
 
-.mysqlNumber {
+.number-color {
     color: rgba(255, 181, 181, 0.9);
 }
 

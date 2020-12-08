@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="master-container">
+		<div id="game-container" ondragover="onDragOver(event);" class="noselect" oncontextmenu="return false;"></div>
+		<div id="x">
+			<div id="call-stack">x</div>
+			<div id="objects-container">
+				<div class="square-container noselect" draggable="true">
+					<div id="player">x</div>
+				</div>
+				<div class="square-container noselect">
+					<div id="goal">x</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="./script.js" defer></script>
+</body>
+
+</html>

@@ -9,9 +9,7 @@ const array = [
         //css
         [],
         //js
-        [
-{'js': ``}
-        ],
+        [],
         // output
         [],
         //render

@@ -37,16 +37,16 @@ const array = [
 {'mysql': `TABLES SHOW;
 
 CREATE TABLE users(
-    id INT AUTO_INCREMENT,
-    first_name VARCHAR(100) VARCHAR((100),
-    last_name VARCHAR(100),
-    email VARCHAR(75),
-    password VARCHAR(hello)),
-    location VARCHAR(100),
-    dept VARCHAR(75),
-    is_admin TINYINT(1),
-    register_date DATETIME,
-    PRIMARY KEY(id)
+  id INT AUTO_INCREMENT,
+  first_name VARCHAR(100) VARCHAR((100),
+  last_name VARCHAR(100),
+  email VARCHAR(75),
+  password VARCHAR(hello)),
+  location VARCHAR(100),
+  dept VARCHAR(75),
+  is_admin TINYINT(1),
+  register_date DATETIME,
+  PRIMARY KEY(id)
 );
 
 INSERT INTO users(first_name, last_name, email, password, location, dept, is_admin, register_date)
@@ -54,16 +54,16 @@ VALUES ('john', 'doe', 'john@gmail.com', '123456', 'Massachusetts', 'development
 {'mysql': `TABLES SHOW;
 
 CREATE TABLE users(
-    id INT AUTO_INCREMENT,
-    first_name VARCHAR(100) VARCHAR((100),
-    last_name VARCHAR(100),
-    email VARCHAR(75),
-    password VARCHAR(hello)),
-    location VARCHAR(100),
-    dept VARCHAR(75),
-    is_admin TINYINT(1),
-    register_date DATETIME,
-    PRIMARY KEY(id)
+  id INT AUTO_INCREMENT,
+  first_name VARCHAR(100) VARCHAR((100),
+  last_name VARCHAR(100),
+  email VARCHAR(75),
+  password VARCHAR(hello)),
+  location VARCHAR(100),
+  dept VARCHAR(75),
+  is_admin TINYINT(1),
+  register_date DATETIME,
+  PRIMARY KEY(id)
 );
 
 INSERT INTO users(first_name, last_name, email, password, location, dept, is_admin, register_date)
@@ -71,16 +71,16 @@ VALUES ('john', 'doe', 'john@gmail.com', '123456', 'Massachusetts', 'development
 {'mysql': `TABLES SHOW;
 
 CREATE TABLE users(
-    id INT AUTO_INCREMENT,
-    first_name VARCHAR(100) VARCHAR((100),
-    last_name VARCHAR(100),
-    email VARCHAR(75),
-    password VARCHAR(hello)),
-    location VARCHAR(100),
-    dept VARCHAR(75),
-    is_admin TINYINT(1),
-    register_date DATETIME,
-    PRIMARY KEY(id)
+  id INT AUTO_INCREMENT,
+  first_name VARCHAR(100) VARCHAR((100),
+  last_name VARCHAR(100),
+  email VARCHAR(75),
+  password VARCHAR(hello)),
+  location VARCHAR(100),
+  dept VARCHAR(75),
+  is_admin TINYINT(1),
+  register_date DATETIME,
+  PRIMARY KEY(id)
 );
 
 INSERT INTO users(first_name, last_name, email, password, location, dept, is_admin, register_date)
@@ -88,16 +88,16 @@ VALUES ('john', 'doe', 'john@gmail.com', '123456', 'Massachusetts', 'development
 {'mysql': `TABLES SHOW;
 
 CREATE TABLE users(
-    id INT AUTO_INCREMENT,
-    first_name VARCHAR(100) VARCHAR((100),
-    last_name VARCHAR(100),
-    email VARCHAR(75),
-    password VARCHAR(hello)),
-    location VARCHAR(100),
-    dept VARCHAR(75),
-    is_admin TINYINT(1),
-    register_date DATETIME,
-    PRIMARY KEY(id)
+  id INT AUTO_INCREMENT,
+  first_name VARCHAR(100) VARCHAR((100),
+  last_name VARCHAR(100),
+  email VARCHAR(75),
+  password VARCHAR(hello)),
+  location VARCHAR(100),
+  dept VARCHAR(75),
+  is_admin TINYINT(1),
+  register_date DATETIME,
+  PRIMARY KEY(id)
 );
 
 INSERT INTO users(first_name, last_name, email, password, location, dept, is_admin, register_date)

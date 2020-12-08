@@ -27,7 +27,7 @@ const array = [
             //css
             [
 {'css': `canvas {
-    border: 1px solid black;
+  border: 1px solid black;
 }`}
             ],
             //js
@@ -66,7 +66,7 @@ let ctx = c.getContext("2d");`}
             //css
             [
 {'css': `canvas {
-    border: 1px solid black;
+  border: 1px solid black;
 }`}
             ],
             //js
@@ -77,35 +77,35 @@ let ctx = c.getContext("2d");
 const paint = () => {
 
 
-    ctx.clearRect(0, 0, ctx.clientWidth, ctx.clientHeight);
+  ctx.clearRect(0, 0, ctx.clientWidth, ctx.clientHeight);
 
-    // (0, 0) = top left corner of canvas
-    // x moves right
-    // y moves down
+  // (0, 0) = top left corner of canvas
+  // x moves right
+  // y moves down
 
-    // use ctx.beginPath() when starting a new path
-    ctx.beginPath()
+  // use ctx.beginPath() when starting a new path
+  ctx.beginPath()
 
-    // use ctx.moveTo(x, y) to move to stroke starting coordinates
-    ctx.moveTo(0, 0);
+  // use ctx.moveTo(x, y) to move to stroke starting coordinates
+  ctx.moveTo(0, 0);
 
-    let height = 300;
-    let width = 200;
+  let height = 300;
+  let width = 200;
 
-    // use ctx.lineTo(x, y) to draw a vector??? **** idk  -  y goes down
-    ctx.lineTo(width, height/5);
-    ctx.lineTo(0, 2*height/5);
-    ctx.lineTo(width/2, 3*height/5);
-    ctx.lineTo(width/4, 4*height/5);
+  // use ctx.lineTo(x, y) to draw a vector??? **** idk  -  y goes down
+  ctx.lineTo(width, height/5);
+  ctx.lineTo(0, 2*height/5);
+  ctx.lineTo(width/2, 3*height/5);
+  ctx.lineTo(width/4, 4*height/5);
 
 
-    ctx.strokeStyle = "#F00";
-    ctx.lineWidth = 0.5;
+  ctx.strokeStyle = "#F00";
+  ctx.lineWidth = 0.5;
 
-    ctx.lineTo(width, height);
+  ctx.lineTo(width, height);
 
-    // use ctx.stroke() to draw the lines above
-    ctx.stroke();
+  // use ctx.stroke() to draw the lines above
+  ctx.stroke();
 }
 
 paint();`}
@@ -141,9 +141,9 @@ paint();`}
             //css
             [
 {'css': `canvas {
-    height: 50vh;
-    width: 50vw;
-    border: 1px solid black;
+  height: 50vh;
+  width: 50vw;
+  border: 1px solid black;
 }`}
             ],
             //js

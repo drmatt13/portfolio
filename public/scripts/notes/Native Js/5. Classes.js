@@ -10,20 +10,20 @@ const array = [
         [],
         //js
         [
-{'comment': `create new class`},
-{'js': `class TestClass {
+{'js': `// create new class
+class TestClass {
 
-    constructor(x) {
-        this.value = x;
-    }
+  constructor(x) {
+    this.value = x;
+  }
 
-    get() {
-        return this.value;
-    }
+  get() {
+    return this.value;
+  }
 
-    set(x) {
-        this.value = x;
-    }
+  set(x) {
+    this.value = x;
+  }
 }
 
 testObject = new TestClass(10);
@@ -48,17 +48,17 @@ console.log(testObject.set(20));`}
         [],
         //js
         [
-{'comment': `static methods are not called on the 
-created object but on the class itself.`},
-{'js': `class TestClass {
+{'js': `// static methods are not called on the 
+// created object but on the class itself.
+class TestClass {
 
-    constructor(x) {
-        this.value = x;
-    }
+  constructor(x) {
+    this.value = x;
+  }
 
-    static hello() {
-        return "Hello!!";
-    }
+  static hello() {
+    return "Hello!!";
+  }
 }
 
 console.log(TestClass.hello());`}
@@ -79,31 +79,31 @@ console.log(TestClass.hello());`}
         [],
         //js
         [
-{'comment': `class inheritance`},
-{'js': `class TestClass {
+{'js': `// class inheritance
+class TestClass {
 
-    constructor(x) {
-        this.value = x;
-    }
+  constructor(x) {
+    this.value = x;
+  }
 
-    output() {
-        return 'output: ' + this.value;
-    }
+  output() {
+    return 'output: ' + this.value;
+  }
 }
 
 class TestInheritance extends TestClass {
 
-    constructor(x, y) {
-        super(x);
-        this.secondValue = y;
-    }
+  constructor(x, y) {
+    super(x);
+    this.secondValue = y;
+  }
 
-    show() {
-        return this.output() + 
-        '\\n' + 
-        'output2: ' + 
-        this.secondValue;
-    }
+  show() {
+    return this.output() + 
+    '\\n' + 
+    'output2: ' + 
+    this.secondValue;
+  }
 }
 
 testObject = new TestInheritance(10, 20);

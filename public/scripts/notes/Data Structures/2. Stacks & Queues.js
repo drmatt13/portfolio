@@ -25,24 +25,25 @@ last in first out
         //css
         [],
         //js
-        [{'comment': `stack from array`},
-{'js': `let stack = [];`},
-{'js': `\n`},
-{'comment': `push, pop based`},
-{'js': `stack.push(x1);`},
-{'js': `stack.push(x2);`},
-{'js': `stack.push(x3);`},
-{'js': `stack.pop();`},
-{'js': `stack.pop();`},
-{'js': `stack.pop();`},
-{'js': `\n`},
-{'comment': `unshift, shift based`},
-{'js': `stack.unshift(x1);`},
-{'js': `stack.unshift(x2);`},
-{'js': `stack.unshift(x3);`},
-{'js': `stack.shift();`},
-{'js': `stack.shift();`},
-{'js': `stack.shift();`}
+        [
+{'js': `// stack from array
+let stack = [];
+
+// push, pop based
+stack.push(x1);
+stack.push(x2);
+stack.push(x3);
+stack.pop();
+stack.pop();
+stack.pop();
+
+// unshift, shift based
+stack.unshift(x1);
+stack.unshift(x2);
+stack.unshift(x3);
+stack.shift();
+stack.shift();
+stack.shift();`}
         ],
         // output
         [],
@@ -58,45 +59,45 @@ last in first out
         [],
         //js
         [
-{'comment': `shift and unshift reindexes every item in the array, bad in big lists`},
-{'js': `class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
+{'js': `// shift and unshift reindexes every item in the array, bad in big lists
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
 }
 
 class Stack {
-    constructor() {
-        this.first = null;
-        this.last = null;
-        this.size = 0;
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+  push(value) {
+    let newNode = new Node(value);
+    if (!this.first) {
+      this.first = newNode;
+      this.last = this.first;
+    } else {
+      // unshifting value from the left
+      // allows for constant time rather then parsing to get tail-1 or using a doubly linked list
+      let temp = this.first;
+      this.first = newNode;
+      this.first.next = temp;
     }
-    push(value) {
-        let newNode = new Node(value);
-        if (!this.first) {
-            this.first = newNode;
-            this.last = this.first;
-        } else {
-            // unshifting value from the left
-            // allows for constant time rather then parsing to get tail-1 or using a doubly linked list
-            let temp = this.first;
-            this.first = newNode;
-            this.first.next = temp;
-        }
-        return ++this.size;
+    return ++this.size;
+  }
+  pop() {
+    // shift
+    if (!this.first) return null;
+    let temp = this.first;
+    if (this.first == this.last) {
+      this.last == null;
     }
-    pop() {
-        // shift
-        if (!this.first) return null;
-        let temp = this.first;
-        if (this.first == this.last) {
-            this.last == null;
-        }
-        this.first = this.first.next;
-        this.size--;
-        return temp.value;
-    }
+    this.first = this.first.next;
+    this.size--;
+    return temp.value;
+  }
 }
 
 let stack = new Stack();
@@ -136,24 +137,24 @@ last in first out
         //css
         [],
         //js
-[{'comment': `queue from array`},
-{'js': `let queue = [];`},
-{'js': `\n`},
-{'comment': `push, shift based`},
-{'js': `queue.push(x1);`},
-{'js': `queue.push(x2);`},
-{'js': `queue.push(x3);`},
-{'js': `queue.shift();`},
-{'js': `queue.shift();`},
-{'js': `queue.shift();`},
-{'js': `\n`},
-{'comment': `unshift, pop based`},
-{'js': `stack.unshift(x1);`},
-{'js': `stack.unshift(x2);`},
-{'js': `stack.unshift(x3);`},
-{'js': `stack.pop();`},
-{'js': `stack.pop();`},
-{'js': `stack.pop();`}
+[{'js': `// queue from array
+let queue = [];
+
+// push, shift based
+queue.push(x1);
+queue.push(x2);
+queue.push(x3);
+queue.shift();
+queue.shift();
+queue.shift();
+
+// unshift, pop based
+stack.unshift(x1);
+stack.unshift(x2);
+stack.unshift(x3);
+stack.pop();
+stack.pop();
+stack.pop();`}
         ],
         // output
         [],
@@ -169,42 +170,42 @@ last in first out
         [],
         //js
         [
-{'comment': `add to the end, remove from the beginning`},
-{'comment': `when using a singy linked list, removing from the end, causes you to have to parse the entire list to get n-1`},
-{'js': `class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
+{'js': `// add to the end, remove from the beginning
+// when using a singy linked list, removing from the end, causes you to have to parse the entire list to get n-1
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
 }
 
 class Queue {
-    constructor() {
-        this.first = null;
-        this.last = null;
-        this.size = 0;
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+  // add to the end
+  enqueue(value) {
+    let newNode = new Node(value);
+    if (!this.first) {
+      this.first = newNode;
+      this.last = this.first;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
     }
-    // add to the end
-    enqueue(value) {
-        let newNode = new Node(value);
-        if (!this.first) {
-            this.first = newNode;
-            this.last = this.first;
-        } else {
-            this.last.next = newNode;
-            this.last = newNode;
-        }
-        return ++this.size;
-    }
-    // remove from the beginning
-    dequeue() {
-        if (!this.first) return null;
-        let temp = this.first;
-        if (this.first == this.last) this.last = null;
-        this.first = this.first.next;
-        this.size--;
-        return temp.value;
-    }
+    return ++this.size;
+  }
+  // remove from the beginning
+  dequeue() {
+    if (!this.first) return null;
+    let temp = this.first;
+    if (this.first == this.last) this.last = null;
+    this.first = this.first.next;
+    this.size--;
+    return temp.value;
+  }
 }
 
 let queue = new Queue();
